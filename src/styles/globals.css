@@ -1,0 +1,74 @@
+@import 'tailwindcss';
+
+/* `dark:` utilities follow the .dark class set by next-themes, not the OS scheme. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+ * Site palette: simple black (dark) / white (light) with a hot-pink accent.
+ * Values live on :root (light) and .dark (set by next-themes); the Tailwind
+ * utilities (bg-background, text-foreground, ...) resolve them at runtime.
+ */
+@theme inline {
+  --color-background: var(--background);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-subtle: var(--subtle);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+}
+
+:root {
+  --background: #ffffff;
+  --card: #f5f5f5;
+  --foreground: #000000;
+  --muted: #555555;
+  --subtle: #8a8a8a;
+  --border: #e4e4e4;
+  --accent: #ec4899;
+
+  /* GitHub heatmap levels: light gray → hot pink */
+  --heat-0: #f0f0f0;
+  --heat-1: #fbc4dd;
+  --heat-2: #f77fbd;
+  --heat-3: #ec4899;
+  --heat-4: #a11d5f;
+
+  color-scheme: light;
+}
+
+.dark {
+  --background: #000000;
+  --card: #141414;
+  --foreground: #ffffff;
+  --muted: #a8a8a8;
+  --subtle: #6f6f6f;
+  --border: #2b2b2b;
+  --accent: #f472b6;
+
+  --heat-0: #1e1e1e;
+  --heat-1: #4a1330;
+  --heat-2: #8a1d57;
+  --heat-3: #c23a7e;
+  --heat-4: #f472b6;
+
+  color-scheme: dark;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img,
+svg,
+canvas {
+  display: block;
+  max-width: 100%;
+}

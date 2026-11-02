@@ -1,0 +1,86 @@
+.fadeIn {
+  animation: fade-in 0.4s ease-out both;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.noScrollbar {
+  scrollbar-width: none;
+}
+
+.noScrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Pulsing dots for the Coming Soon indicator. */
+.dots {
+  display: inline-flex;
+  gap: 2px;
+  margin-left: 3px;
+}
+
+.dots span {
+  animation: dot-blink 1.4s infinite both;
+}
+
+.dots span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.dots span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes dot-blink {
+  0%,
+  80%,
+  100% {
+    opacity: 0.2;
+  }
+  40% {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dots span {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+.cell {
+  fill: var(--heat-0);
+  stroke: rgba(255, 255, 255, 0.04);
+}
+
+.cell[data-level='1'] {
+  fill: var(--heat-1);
+}
+
+.cell[data-level='2'] {
+  fill: var(--heat-2);
+}
+
+.cell[data-level='3'] {
+  fill: var(--heat-3);
+}
+
+.cell[data-level='4'] {
+  fill: var(--heat-4);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fadeIn {
+    animation: none;
+  }
+}
