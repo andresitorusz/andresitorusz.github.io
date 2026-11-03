@@ -4,6 +4,7 @@ import { differenceInMonths, parse } from 'date-fns';
 import { EXPERIENCES, ExperienceItemData } from 'data/profile';
 import { cn } from 'lib/cn';
 import { Panel } from './section';
+import { ThemedLogo } from './themed-logo';
 
 const VISIBLE_COUNT = 3;
 
@@ -43,7 +44,9 @@ function ExperienceRow({ experience }: { experience: ExperienceItemData }) {
 
   return (
     <div className="group/experience flex items-start gap-3">
-      {experience.companyLogo && (
+      {experience.themedLogo ? (
+        <ThemedLogo variant={experience.themedLogo} className="mx-1 size-6 shrink-0" />
+      ) : experience.companyLogo ? (
         // eslint-disable-next-line @next/next/no-img-element
         <img
           src={experience.companyLogo}
@@ -51,13 +54,15 @@ function ExperienceRow({ experience }: { experience: ExperienceItemData }) {
           width="24"
           height="24"
           className={cn(
-            'mx-1 size-6 shrink-0',
+            'mx-1 shrink-0',
             experience.logoShape === 'rounded-square'
-              ? 'rounded-md object-cover'
-              : 'rounded-full object-contain'
+              ? 'size-6 rounded-md object-cover'
+              : experience.logoShape === 'full'
+                ? 'h-6 w-auto object-contain'
+                : 'size-6 rounded-full object-contain'
           )}
         />
-      )}
+      ) : null}
       <div className="min-w-0 flex-1">
         <h3 className="flex items-center gap-2 text-sm font-medium">
           <span>

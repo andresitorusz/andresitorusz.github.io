@@ -2,13 +2,17 @@
   animation: fade-in 0.4s ease-out both;
 }
 
-/* Theme-aware brand marks: one element, the mark swaps with the theme. */
-.logoGithub {
-  background-image: url('/assets/logos/github-dark.png');
+/* Theme-aware brand marks: ThemedLogo consumes these, the .dark block swaps them. */
+:root {
+  --logo-github: url('/assets/logos/github-dark.png');
+  --logo-x: url('/assets/logos/x-dark.png');
+  --logo-sirclo: url('/assets/logos/sirclo-dark.png');
 }
 
-:global(.dark) .logoGithub {
-  background-image: url('/assets/logos/github-light.png');
+:global(.dark) {
+  --logo-github: url('/assets/logos/github-light.png');
+  --logo-x: url('/assets/logos/x-light.png');
+  --logo-sirclo: url('/assets/logos/sirclo-light.png');
 }
 
 @keyframes fade-in {

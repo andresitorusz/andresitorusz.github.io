@@ -4,18 +4,18 @@ import { cn } from 'lib/cn';
 import { obfuscate } from 'lib/obfuscate';
 import { CONTENT } from 'data/content';
 import styles from 'styles/site.module.css';
+import { ThemedLogo } from './themed-logo';
 
-// Real brand marks; GitHub is a theme-aware CSS class, the rest plain images.
-const SOCIAL_LOGOS: Record<string, { light: string; dark?: string }> = {
-  github: { light: '/assets/logos/github-dark.png', dark: '/assets/logos/github-light.png' },
-  linkedin: { light: '/assets/logos/social-linkedin.png' },
-  twitter: { light: '/assets/logos/x.png' },
-  youtube: { light: '/assets/logos/social-youtube.png' },
-  email: { light: '/assets/logos/social-gmail.png' }
+// Plain brand images; GitHub and X use the theme-aware ThemedLogo instead.
+const SOCIAL_LOGOS: Record<string, string> = {
+  linkedin: '/assets/logos/social-linkedin.png',
+  youtube: '/assets/logos/social-youtube.png',
+  email: '/assets/logos/social-gmail.png'
 };
 
-const THEME_LOGOS: Record<string, string> = {
-  github: styles.logoGithub
+const THEMED_SOCIAL_LOGOS: Record<string, 'github' | 'x'> = {
+  github: 'github',
+  x: 'x'
 };
 
 const HIGHLIGHT = 'Data Engineer';
@@ -82,18 +82,15 @@ export function Hero() {
                     title={social.title}
                     className="group inline-flex size-9 items-center justify-center rounded-full border border-border bg-card text-foreground/80 transition-colors duration-150 hover:text-foreground"
                   >
-                    {THEME_LOGOS[social.name] ? (
-                      <span
-                        aria-hidden
-                        className={cn(
-                          THEME_LOGOS[social.name],
-                          'size-[18px] bg-contain bg-center bg-no-repeat'
-                        )}
+                    {THEMED_SOCIAL_LOGOS[social.name] ? (
+                      <ThemedLogo
+                        variant={THEMED_SOCIAL_LOGOS[social.name]}
+                        className="size-[18px]"
                       />
                     ) : (
                       // eslint-disable-next-line @next/next/no-img-element
                       <img
-                        src={logo.light}
+                        src={logo}
                         alt=""
                         aria-hidden
                         className="size-[18px] object-contain"

@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { Box, ChevronDown, Link as LinkIcon } from 'lucide-react';
 import { PROJECTS, ProjectItemData } from 'data/profile';
 import { cn } from 'lib/cn';
-import styles from 'styles/site.module.css';
 import { Panel } from './section';
+import { ThemedLogo } from './themed-logo';
 
 const VISIBLE_COUNT = 3;
 
@@ -46,10 +46,7 @@ function ProjectRow({ project }: { project: ProjectItemData }) {
     <li>
       <div className="relative flex items-center">
         {isGithubFallback ? (
-          <span
-            aria-hidden
-            className={cn(styles.logoGithub, 'mx-1 size-6 shrink-0 bg-contain bg-center bg-no-repeat')}
-          />
+          <ThemedLogo variant="github" className="mx-1 size-6 shrink-0" />
         ) : logo ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img

@@ -1,6 +1,6 @@
 import { GITHUB_USERNAME } from 'data/constants';
 
-export type SocialName = 'github' | 'linkedin' | 'twitter' | 'youtube' | 'email';
+export type SocialName = 'github' | 'linkedin' | 'x' | 'youtube' | 'email';
 
 type Social = { name: SocialName; title: string; handle: string; href: string };
 
@@ -18,7 +18,7 @@ const socials: Social[] = [
     href: 'https://linkedin.com/in/andresitorusz'
   },
   {
-    name: 'twitter',
+    name: 'x',
     title: 'X',
     handle: '@andresitorusz',
     href: 'https://x.com/andresitorusz'
@@ -61,8 +61,10 @@ export type ExperienceItemData = {
   id: string;
   companyName: string;
   companyLogo?: string;
-  /** 'rounded-square' for square logos with a background (app-icon style); default is circle. */
-  logoShape?: 'circle' | 'rounded-square';
+  /** Theme-aware logo variant rendered via ThemedLogo. */
+  themedLogo?: 'sirclo';
+  /** 'rounded-square' for logos with a background; 'full' shows the whole logo at its natural width. */
+  logoShape?: 'circle' | 'rounded-square' | 'full';
   isCurrentEmployer?: boolean;
   positions: {
     id: string;
@@ -100,6 +102,7 @@ export const EXPERIENCES: ExperienceItemData[] = [
     id: 'goto-group',
     companyName: 'GoTo Group',
     companyLogo: '/assets/logos/goto.png',
+    logoShape: 'full',
     positions: [
       {
         id: 'goto-group-data-engineer',
@@ -118,7 +121,7 @@ export const EXPERIENCES: ExperienceItemData[] = [
   {
     id: 'sirclo',
     companyName: 'SIRCLO',
-    companyLogo: '/assets/logos/sirclo.png',
+    themedLogo: 'sirclo',
     positions: [
       {
         id: 'sirclo-data-engineer',
@@ -139,6 +142,7 @@ export const EXPERIENCES: ExperienceItemData[] = [
     id: 'tokopedia',
     companyName: 'Tokopedia',
     companyLogo: '/assets/logos/tokopedia.png',
+    logoShape: 'full',
     positions: [
       {
         id: 'tokopedia-data-engineer',
@@ -159,6 +163,7 @@ export const EXPERIENCES: ExperienceItemData[] = [
     id: 'blibli',
     companyName: 'Blibli',
     companyLogo: '/assets/logos/blibli.png',
+    logoShape: 'full',
     positions: [
       {
         id: 'blibli-associate-data-engineer',
