@@ -19,7 +19,7 @@ export default function Home() {
   return (
     <>
       <Meta
-        title="Ye — Senior Data Engineer"
+        title="ye"
         description="Data engineer building scalable batch and real-time data platforms."
       />
       <Hero />
