@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ChevronDown, Infinity } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import { differenceInMonths, parse } from 'date-fns';
 import { EXPERIENCES, ExperienceItemData } from 'data/profile';
 import { cn } from 'lib/cn';
@@ -77,11 +77,7 @@ function ExperienceRow({ experience }: { experience: ExperienceItemData }) {
           <dd className="flex items-center gap-0.5 tabular-nums">
             {start && <span>{start}</span>}
             <span>—</span>
-            {end ? (
-              <span>{end}</span>
-            ) : (
-              <Infinity className="size-3.5 translate-y-px" aria-label="Present" />
-            )}
+            {end ? <span>{end}</span> : <span>Present</span>}
           </dd>
           <span className="tabular-nums text-subtle">·</span>
           <dd className="tabular-nums">{formatDuration(start, end)}</dd>
@@ -106,7 +102,8 @@ function ExperienceRow({ experience }: { experience: ExperienceItemData }) {
 function formatDuration(start: string, end?: string) {
   const startDate = parse(start, 'MMM yyyy', new Date());
   const endDate = end ? parse(end, 'MMM yyyy', new Date()) : new Date();
-  const months = Math.max(0, differenceInMonths(endDate, startDate));
+  // Inclusive month count: Feb 2021 – Feb 2022 is 1y 1m.
+  const months = differenceInMonths(endDate, startDate) + 1;
   const years = Math.floor(months / 12);
   const rest = months % 12;
   return years > 0 ? `${years}y ${rest}m` : `${rest}m`;
