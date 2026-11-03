@@ -108,7 +108,7 @@ export const EXPERIENCES: ExperienceItemData[] = [
         id: 'goto-group-data-engineer',
         title: 'Data Engineer',
         employmentPeriod: { start: 'Oct 2024', end: 'Jun 2026' },
-        skills: ['Alibaba Cloud (MaxCompute, DataWorks, OSS)', 'Apache Airflow', 'Google Cloud Platform (BigQuery, Cloud Storage)', 'Python'],
+        skills: ['Alibaba Cloud (MaxCompute, DataWorks, OSS)', 'Apache Airflow', 'GitLab', 'Google Cloud Platform (BigQuery, Cloud Storage)', 'Python'],
         highlights: [
           'Integrated third-party data sources, streamlined ingestion of external data into the internal data warehouse, and staged data as requested by analysts.',
           'Recreated old ungoverned tables and their columns by following the internal and data warehouse team\'s new governance.',
@@ -127,7 +127,7 @@ export const EXPERIENCES: ExperienceItemData[] = [
         id: 'sirclo-data-engineer',
         title: 'Data Engineer',
         employmentPeriod: { start: 'Jun 2023', end: 'Sep 2024' },
-        skills: ['Apache (Airflow, Spark)', 'DataHub', 'dbt', 'Google Cloud Platform (Artifact Registry, BigQuery, Cloud Run, Cloud Storage, Kubernetes Engine)', 'Phabricator', 'Python', 'Scala', 'Streamlit'],
+        skills: ['Apache (Airflow, Spark)', 'DataHub', 'dbt', 'Google Cloud Platform (Artifact Registry, BigQuery, Cloud Run, Cloud Storage, Kubernetes Engine)', 'Jenkins', 'Phabricator', 'Python', 'Scala', 'Streamlit', 'SQL'],
         highlights: [
           'Accelerated data pipeline creation and execution by developing a custom framework that automates dynamic batch pipeline generation and maintenance, leveraging Apache Airflow and Apache Spark on Google Kubernetes Engine (GKE).',
           'Enhanced data accessibility by developing an in-house Streamlit application on GKE, enabling users to interact with BigQuery seamlessly.',
@@ -148,7 +148,7 @@ export const EXPERIENCES: ExperienceItemData[] = [
         id: 'tokopedia-data-engineer',
         title: 'Data Engineer',
         employmentPeriod: { start: 'Mar 2022', end: 'May 2023' },
-        skills: ['Apache (Airflow, Beam)', 'Debezium', 'Go', 'Google Cloud Platform (Artifact Registry, BigQuery, Cloud Storage, Dataflow, Kubernetes Engine, Secret Manager)', 'Java', 'Python'],
+        skills: ['Apache (Airflow, Beam)', 'Debezium', 'GitHub', 'Go', 'Google Cloud Platform (Artifact Registry, BigQuery, Cloud Storage, Dataflow, Kubernetes Engine, Pub/Sub, Secret Manager)', 'Java', 'Jenkins', 'Python', 'SQL'],
         highlights: [
           'Accelerated and simplified data process orchestration by developing a custom framework for automated dynamic batch pipeline generation on Apache Airflow and Apache Beam with Dataflow Runner, managing the scheduling of all data workflows.',
           'Enabled low-latency data synchronization between operational databases and the data warehouse by developing a near real-time replication pipeline using Apache Beam, Dataflow, Debezium Server, GKE, and Pub/Sub.',
@@ -169,7 +169,7 @@ export const EXPERIENCES: ExperienceItemData[] = [
         id: 'blibli-associate-data-engineer',
         title: 'Associate Data Engineer',
         employmentPeriod: { start: 'Feb 2021', end: 'Feb 2022' },
-        skills: ['Apache Airflow', 'Atlassian (Bitbucket, Confluence, Jira)', 'Google Cloud Platform (BigQuery, Cloud Storage, Dataflow)', 'Python'],
+        skills: ['Apache Airflow', 'Atlassian (Bitbucket, Confluence, Jira)', 'Google Cloud Platform (BigQuery, Cloud Storage, Dataflow)', 'Python', 'SQL'],
         highlights: [
           'Contributed to building the entire end-to-end data engineering pipeline at Garasi.id from scratch, served as the first and the sole Data Engineer.',
           'Reduced data processing costs by approximately 90% for several Blibli.com pipelines by introducing an operator that transformed raw data into standardized formats, applied across multiple large-scale daily or hourly pipelines.'
