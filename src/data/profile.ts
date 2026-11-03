@@ -263,3 +263,52 @@ export const PROJECTS: ProjectItemData[] = [
     description: 'Learning a simple serverless data lake deployment on AWS using Terraform.'
   }
 ];
+
+export type VolunteeringItemData = {
+  id: string;
+  organization: string;
+  logo?: string;
+  role?: string;
+  periodText?: string;
+  description?: string;
+};
+
+// From temp/volunteering.txt.
+export const VOLUNTEERING: VolunteeringItemData[] = [
+  {
+    id: 'cloud-study-jams',
+    organization: 'Google',
+    logo: '/assets/logos/google.png',
+    role: 'Facilitator of Cloud Study Jams',
+    periodText: 'Nov 2019 · 1 mo',
+    description:
+      'Cloud Study Jams (CSJ) is a community-run study group for developers to learn the fundamental tools and capabilities of Google Cloud including free access to online labs across Machine Learning, Kubernetes, Certification, IoT, and Security.\nAs a Facilitator, I:\n- Guided participants on how to operate the GCP according to the mandatory topics chosen by the CSJ team and also according to the learning topics that are being followed by the participants after completing the mandatory topics.\n- Led the event activities.\n- Encouraged participants to dive deeper into the topics.'
+  },
+  {
+    id: 'developer-student-clubs',
+    organization: 'Google',
+    logo: '/assets/logos/google.png',
+    role: 'Lead of Developer Student Clubs',
+    periodText: 'Aug 2019 - Jul 2020 · 1 yr',
+    description:
+      'Developer Student Clubs (DSC) is a Google Developer program for university students, designed to help them build their cloud computing, mobile, and web development skills and knowledge.\nAs a Lead, I:\n- Set up DSC on my campus.\n- Organized club events.\n- Created chances for colleagues to share knowledge with fellow students.'
+  },
+  {
+    id: 'computer-lab-assistant',
+    organization: 'Institut Teknologi Del',
+    logo: '/assets/logos/del.png',
+    role: 'Computer Lab Assistant',
+    periodText: 'Sep 2019 - May 2020 · 9 mos',
+    description:
+      'As a Computer Lab Assistant, I:\n- Guided the students in understanding the practicum module.\n- Assisted the lecturer in evaluating student practicum assignments.\n- Assisted the lecturer in evaluating the final project of the course.\n\nCourse: Mobile Application Development. [September 2019 - May 2020]\nCourse topics: Activity, Thread & Fragment, Intent & Services, Content Provider & Broadcast Receiver, App Resources, Layout, Input Controls & Input Events, Room, and Web Service & Retrofit.\n\nCourse: Artificial Intelligence. [September 2019 - January 2020]\nCourse topics: Uninformed Search, Informed Search, Classical Search, Adversarial Search, and Uncertainty & Probabilistic Reasoning.'
+  },
+  {
+    id: 'bebras',
+    organization: 'Bebras Indonesia',
+    logo: '/assets/logos/bebras.png',
+    role: 'Committee Member',
+    periodText: 'Oct 2018 · 1 mo',
+    description:
+      'Bebras Challenge is a challenge for elementary, junior high, and high school students to educate problem-solving skills, which contains the concept of computational thinking.\nAs a Committee Member, I guided and assisted participants in completing the challenge.'
+  }
+];
