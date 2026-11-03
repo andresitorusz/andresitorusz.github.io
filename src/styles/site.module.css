@@ -7,12 +7,14 @@
   --logo-github: url('/assets/logos/github-dark.png');
   --logo-x: url('/assets/logos/x-dark.png');
   --logo-sirclo: url('/assets/logos/sirclo-dark.png');
+  --logo-del: url('/assets/logos/del-dark.png');
 }
 
 :global(.dark) {
   --logo-github: url('/assets/logos/github-light.png');
   --logo-x: url('/assets/logos/x-light.png');
   --logo-sirclo: url('/assets/logos/sirclo-light.png');
+  --logo-del: url('/assets/logos/del-light.png');
 }
 
 @keyframes fade-in {

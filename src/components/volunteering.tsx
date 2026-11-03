@@ -3,6 +3,7 @@ import { ChevronDown, Link as LinkIcon } from 'lucide-react';
 import { VOLUNTEERING, VolunteeringItemData } from 'data/profile';
 import { cn } from 'lib/cn';
 import { Panel } from './section';
+import { ThemedLogo } from './themed-logo';
 
 const VISIBLE_COUNT = 3;
 
@@ -42,7 +43,9 @@ function VolunteeringRow({ item }: { item: VolunteeringItemData }) {
   return (
     <div>
       <div className="flex items-start gap-3">
-        {item.logo && (
+        {item.themedLogo ? (
+          <ThemedLogo variant={item.themedLogo} className="mx-1 size-6 shrink-0" />
+        ) : item.logo ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img
             src={item.logo}
@@ -51,7 +54,7 @@ function VolunteeringRow({ item }: { item: VolunteeringItemData }) {
             height="24"
             className="mx-1 size-6 shrink-0 object-contain"
           />
-        )}
+        ) : null}
         <div className="min-w-0 flex-1">
           <h3 className="text-sm font-medium">{item.role ?? item.organization}</h3>
           {item.role && <p className="text-xs text-muted">{item.organization}</p>}

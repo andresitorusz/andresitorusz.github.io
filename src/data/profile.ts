@@ -62,7 +62,7 @@ export type ExperienceItemData = {
   companyName: string;
   companyLogo?: string;
   /** Theme-aware logo variant rendered via ThemedLogo. */
-  themedLogo?: 'sirclo';
+  themedLogo?: 'sirclo' | 'del';
   /** 'rounded-square' for logos with a background; 'full' shows the whole logo at its natural width. */
   logoShape?: 'circle' | 'rounded-square' | 'full';
   isCurrentEmployer?: boolean;
@@ -90,7 +90,7 @@ export const EXPERIENCES: ExperienceItemData[] = [
         skills: [
           'Apache (Airflow, Flink, Spark)', 'Argo CD', 'Atlassian (Confluence, Jira)', 'dbt', 'Debezium','GitHub', 'Go',
           'Google Cloud Platform (Artifact Registry, BigQuery, Cloud Storage, Kubernetes Engine, Secret Manager)',
-          'Java', 'Kafka', 'Metabase', 'Python', 'Terraform'
+          'Java', 'Kafka', 'Metabase', 'Python', 'SQL', 'Terraform'
         ],
         highlights: [
           'Making Magic Happen.'
@@ -108,7 +108,7 @@ export const EXPERIENCES: ExperienceItemData[] = [
         id: 'goto-group-data-engineer',
         title: 'Data Engineer',
         employmentPeriod: { start: 'Oct 2024', end: 'Jun 2026' },
-        skills: ['Alibaba Cloud (MaxCompute, DataWorks, OSS)', 'Apache Airflow', 'GitLab', 'Google Cloud Platform (BigQuery, Cloud Storage)', 'Python'],
+        skills: ['Alibaba Cloud (MaxCompute, DataWorks, OSS)', 'Apache Airflow', 'GitLab', 'Google Cloud Platform (BigQuery, Cloud Storage)', 'Python', 'SQL'],
         highlights: [
           'Integrated third-party data sources, streamlined ingestion of external data into the internal data warehouse, and staged data as requested by analysts.',
           'Recreated old ungoverned tables and their columns by following the internal and data warehouse team\'s new governance.',
@@ -184,6 +184,7 @@ export type EducationItemData = {
   campus: string;
   degree?: string;
   campusLogo?: string;
+  themedLogo?: 'del';
   period?: { start: string; end?: string };
   description?: string;
   skills?: string[];
@@ -194,7 +195,7 @@ export const EDUCATION: EducationItemData[] = [
     id: 'institut-teknologi-del',
     campus: 'Institut Teknologi Del',
     degree: 'Bachelor of Computer Science',
-    campusLogo: '/assets/logos/del.png',
+    themedLogo: 'del',
     period: { start: 'Aug 2016', end: 'Aug 2020' }
   }
 ];
@@ -273,6 +274,7 @@ export type VolunteeringItemData = {
   id: string;
   organization: string;
   logo?: string;
+  themedLogo?: 'del';
   role?: string;
   periodText?: string;
   description?: string;
@@ -303,7 +305,7 @@ export const VOLUNTEERING: VolunteeringItemData[] = [
   {
     id: 'computer-lab-assistant',
     organization: 'Institut Teknologi Del',
-    logo: '/assets/logos/del.png',
+    themedLogo: 'del',
     role: 'Computer Lab Assistant',
     periodText: 'Sep 2019 - May 2020 · 9 mos',
     description:

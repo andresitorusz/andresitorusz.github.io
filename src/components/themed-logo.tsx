@@ -6,7 +6,7 @@ export function ThemedLogo({
   variant,
   className
 }: {
-  variant: 'github' | 'x' | 'sirclo';
+  variant: 'github' | 'x' | 'sirclo' | 'del';
   className?: string;
 }) {
   return (

@@ -1,6 +1,7 @@
 import { GraduationCap } from 'lucide-react';
 import { EDUCATION } from 'data/profile';
 import { Panel } from './section';
+import { ThemedLogo } from './themed-logo';
 
 export function Education() {
   return (
@@ -8,7 +9,9 @@ export function Education() {
       <div className="space-y-4 py-4">
         {EDUCATION.map((item) => (
           <div key={item.id} className="group/education flex items-start gap-3">
-            {item.campusLogo ? (
+            {item.themedLogo ? (
+              <ThemedLogo variant={item.themedLogo} className="mx-1 size-6 shrink-0" />
+            ) : item.campusLogo ? (
               // eslint-disable-next-line @next/next/no-img-element
               <img
                 src={item.campusLogo}
