@@ -10,8 +10,7 @@ export function Cta() {
         Looking to collaborate on your next venture?
       </h2>
       <p className="mt-1 text-xs text-muted">
-        I currently reside in Jakarta, Indonesia, and am available for global remote work. Get in
-        touch!
+        Jakarta-based. Open to remote roles worldwide. Get in touch!
       </p>
       <ArrowDown className={cn(styles.bounce, 'mx-auto mt-2 size-4 text-accent')} aria-hidden />
       <div className="mt-3 flex flex-wrap items-center justify-center gap-2">
