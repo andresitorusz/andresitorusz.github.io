@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { ChevronDown, Link as LinkIcon } from 'lucide-react';
 import { VOLUNTEERING, VolunteeringItemData } from 'data/profile';
 import { cn } from 'lib/cn';
+import styles from 'styles/site.module.css';
 import { Panel } from './section';
 import { ThemedLogo } from './themed-logo';
 
@@ -13,7 +14,7 @@ export function Volunteering() {
   const hiddenCount = VOLUNTEERING.length - VISIBLE_COUNT;
 
   return (
-    <Panel id="volunteering" title="Volunteering">
+    <Panel id="volunteering" title="Volunteer Experience">
       <div className="space-y-4 py-4">
         {visible.map((item) => (
           <VolunteeringRow key={item.id} item={item} />
@@ -83,10 +84,14 @@ function VolunteeringRow({ item }: { item: VolunteeringItemData }) {
           </a>
         )}
       </div>
-      {open && item.description && (
-        <p className="mt-1 whitespace-pre-line pl-11 pr-4 text-xs leading-relaxed text-muted">
-          {item.description}
-        </p>
+      {item.description && (
+        <div className={cn(styles.collapsible, open && styles.collapsibleOpen)}>
+          <div>
+            <p className="mt-1 whitespace-pre-line pl-11 pr-4 text-xs leading-relaxed text-muted">
+              {item.description}
+            </p>
+          </div>
+        </div>
       )}
     </div>
   );

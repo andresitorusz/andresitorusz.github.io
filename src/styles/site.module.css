@@ -94,8 +94,28 @@
   fill: var(--heat-4);
 }
 
+/* Smooth expand/collapse for description content (pure CSS grid trick). */
+.collapsible {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.25s ease;
+}
+
+.collapsibleOpen {
+  grid-template-rows: 1fr;
+}
+
+.collapsible > * {
+  overflow: hidden;
+  min-height: 0;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .fadeIn {
     animation: none;
+  }
+
+  .collapsible {
+    transition: none;
   }
 }

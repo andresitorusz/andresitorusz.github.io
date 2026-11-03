@@ -3,6 +3,7 @@ import { ChevronDown } from 'lucide-react';
 import { differenceInMonths, parse } from 'date-fns';
 import { EXPERIENCES, ExperienceItemData } from 'data/profile';
 import { cn } from 'lib/cn';
+import styles from 'styles/site.module.css';
 import { Panel } from './section';
 import { ThemedLogo } from './themed-logo';
 
@@ -14,7 +15,7 @@ export function Experience() {
   const hiddenCount = EXPERIENCES.length - VISIBLE_COUNT;
 
   return (
-    <Panel id="experience" title="Experience">
+    <Panel id="experience" title="Work Experience">
       <div className="space-y-4 py-4">
         {visible.map((experience) => (
           <ExperienceRow key={experience.id} experience={experience} />
@@ -88,15 +89,19 @@ function ExperienceRow({ experience }: { experience: ExperienceItemData }) {
           <span className="tabular-nums text-subtle">·</span>
           <dd className="tabular-nums">{formatDuration(start, end)}</dd>
         </dl>
-        {open && position.highlights && (
-          <ul className="mt-1 space-y-1">
-            {position.highlights.map((highlight) => (
-              <li key={highlight} className="flex gap-2 text-xs leading-relaxed text-muted">
-                <span className="shrink-0 text-accent">▸</span>
-                {highlight}
-              </li>
-            ))}
-          </ul>
+        {position.highlights && (
+          <div className={cn(styles.collapsible, open && styles.collapsibleOpen)}>
+            <div>
+              <ul className="mt-1 space-y-1">
+                {position.highlights.map((highlight) => (
+                  <li key={highlight} className="flex gap-2 text-xs leading-relaxed text-muted">
+                    <span className="shrink-0 text-accent">▸</span>
+                    {highlight}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
         )}
         {position.skills && (
           <ul className="mt-1 flex flex-wrap gap-1.5">

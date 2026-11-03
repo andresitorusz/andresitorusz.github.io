@@ -1,9 +1,8 @@
 import { ReactNode, useEffect, useSyncExternalStore, useState } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import { useTheme } from 'next-themes';
 import localFont from 'next/font/local';
-import { ArrowUp, Moon, Sun } from 'lucide-react';
+import { ArrowUp, House, Moon, Sun } from 'lucide-react';
 import { PROFILE } from 'data/profile';
 import { cn } from 'lib/cn';
 import { CONTENT } from 'data/content';
@@ -20,8 +19,6 @@ const googleSans = localFont({
 });
 
 export function SiteLayout({ children }: { children: ReactNode }) {
-  const router = useRouter();
-
   return (
     <div
       className={cn(
@@ -32,25 +29,14 @@ export function SiteLayout({ children }: { children: ReactNode }) {
       <header className="fixed inset-x-0 top-0 z-50 bg-background/80 backdrop-blur-md">
         <nav className="mx-auto flex max-w-3xl items-center justify-end gap-2.5 px-4 py-3 sm:px-6 sm:gap-5">
           <div className={cn(styles.noScrollbar, 'flex items-center gap-2.5 overflow-x-auto sm:gap-5')}>
-            {CONTENT.nav.map((item) => {
-              const isActive =
-                item.href === '/' ? router.pathname === '/' : router.pathname.startsWith(item.href);
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  aria-current={isActive ? 'page' : undefined}
-                  className={cn(
-                    'whitespace-nowrap text-xs transition-colors duration-150',
-                    isActive
-                      ? 'font-semibold text-accent'
-                      : 'text-muted hover:text-foreground'
-                  )}
-                >
-                  {item.label}
-                </Link>
-              );
-            })}
+            {/* Home mark: lucide House (ISC-licensed), currentColor follows the theme. */}
+            <Link
+              href="/"
+              aria-label="Home"
+              className="text-muted transition-colors duration-150 hover:text-accent"
+            >
+              <House className="size-4" />
+            </Link>
             <ThemeToggle />
           </div>
         </nav>

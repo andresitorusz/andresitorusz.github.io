@@ -8,10 +8,6 @@ export const CONTENT = {
   },
   timeZoneLabel: 'WIB',
   stack: ['Apache Airflow', 'Apache Spark', 'Apache Beam', 'Go', 'Python', 'Google Cloud Platform', 'Amazon Web Services', 'BigQuery', 'Kubernetes', 'dbt'],
-  nav: [
-    { label: 'Home', href: '/' },
-    { label: 'About', href: '/about' }
-  ],
   about: [
     ""
   ]

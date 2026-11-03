@@ -4,7 +4,7 @@ import { Panel } from './section';
 
 export function Certifications() {
   return (
-    <Panel id="licenses" title="Licenses & Certifications">
+    <Panel id="licenses" title="Certifications">
       <div className="space-y-4 py-4">
         {LICENSES.map((license) => (
           <div key={license.id} className="group/license flex items-start gap-3">
