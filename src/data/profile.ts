@@ -186,8 +186,8 @@ export const EXPERIENCES: ExperienceItemData[] = [
           'Google BigQuery', 'Google Cloud Storage', 'Google Dataflow', 'Python', 'SQL'
         ],
         highlights: [
-          'Contributed to building the entire end-to-end data engineering pipeline at Garasi.id from scratch, served as the first and the sole Data Engineer.',
-          'Reduced data processing costs by approximately 90% for several Blibli.com pipelines by introducing an operator that transformed raw data into standardized formats, applied across multiple large-scale daily or hourly pipelines.'
+          'Built Garasi.id\'s end-to-end data pipeline from scratch as the sole founding Data Engineer, then I got transferred to Blibli after seven months.',
+          'Reduced data processing costs by ~90% on high-frequency pipelines by implementing a raw-to-standard data transformation operator.'
         ]
       }
     ]
