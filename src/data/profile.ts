@@ -276,6 +276,7 @@ export type VolunteeringItemData = {
   role?: string;
   periodText?: string;
   description?: string;
+  credentialUrl?: string;
 };
 
 // From temp/volunteering.txt.
@@ -295,6 +296,7 @@ export const VOLUNTEERING: VolunteeringItemData[] = [
     logo: '/assets/logos/google.png',
     role: 'Lead of Developer Student Clubs',
     periodText: 'Aug 2019 - Jul 2020 · 1 yr',
+    credentialUrl: 'https://drive.google.com/file/d/1EfzH89gUANt5s6FDtjyrcXpEsqhHAQPG/view?usp=sharing',
     description:
       'Developer Student Clubs (DSC) is a Google Developer program for university students, designed to help them build their cloud computing, mobile, and web development skills and knowledge.\nAs a Lead, I:\n- Set up DSC on my campus.\n- Organized club events.\n- Created chances for colleagues to share knowledge with fellow students.'
   },
