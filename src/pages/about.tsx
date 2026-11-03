@@ -6,7 +6,10 @@ import styles from 'styles/site.module.css';
 export default function About() {
   return (
     <>
-      <Meta title="ye — About" description="About me." />
+      <Meta
+        title="ye — About"
+        description="Oor my."
+      />
       <div className="pt-20 md:pt-24">
         <Section>
           <div className="space-y-4">

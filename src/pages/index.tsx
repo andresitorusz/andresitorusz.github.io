@@ -20,7 +20,7 @@ export default function Home() {
     <>
       <Meta
         title="ye"
-        description="Data engineer building scalable batch and real-time data platforms."
+        description="My loopbaanlogboek."
       />
       <Hero />
       <Contributions contributions={contributions} />
