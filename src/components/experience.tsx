@@ -51,7 +51,7 @@ function ExperienceRow({ experience }: { experience: ExperienceItemData }) {
           width="24"
           height="24"
           className={cn(
-            'mx-1 size-6 shrink-0 grayscale transition-[filter] duration-300 group-hover/experience:grayscale-0',
+            'mx-1 size-6 shrink-0',
             experience.logoShape === 'rounded-square'
               ? 'rounded-md object-cover'
               : 'rounded-full object-contain'

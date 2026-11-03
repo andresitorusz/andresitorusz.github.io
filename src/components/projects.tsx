@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Box, ChevronDown, Link as LinkIcon } from 'lucide-react';
 import { PROJECTS, ProjectItemData } from 'data/profile';
 import { cn } from 'lib/cn';
+import styles from 'styles/site.module.css';
 import { Panel } from './section';
 
 const VISIBLE_COUNT = 3;
@@ -37,34 +38,35 @@ export function Projects() {
 }
 
 function ProjectRow({ project }: { project: ProjectItemData }) {
-  // A GitHub link gets the GitHub mark; otherwise fall back to the box tile.
-  const logo = project.logo ?? (project.link?.includes('github.com') ? '/assets/logos/github.png' : undefined);
+  // A GitHub link gets the GitHub mark (theme-aware); otherwise fall back to the box tile.
+  const isGithubFallback = !project.logo && !!project.link?.includes('github.com');
+  const logo = project.logo ?? (isGithubFallback ? '/assets/logos/github-dark.png' : undefined);
 
   return (
     <li>
       <div className="relative flex items-center">
-        {logo ? (
+        {isGithubFallback ? (
+          <span
+            aria-hidden
+            className={cn(styles.logoGithub, 'mx-1 size-6 shrink-0 bg-contain bg-center bg-no-repeat')}
+          />
+        ) : logo ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img
             src={logo}
             alt={`${project.title} logo`}
             width="24"
             height="24"
-            className="mx-1 size-6 shrink-0 rounded-full object-contain grayscale transition-[filter] duration-300 hover:grayscale-0"
+            className="mx-1 size-6 shrink-0 rounded-full object-contain"
           />
         ) : (
           <div className="mx-1 flex size-6 shrink-0 items-center justify-center rounded-md border border-muted/15 bg-card text-muted">
             <Box className="size-4" />
           </div>
         )}
-        <div className="flex min-w-0 flex-1 items-center gap-2 py-4 pl-3">
+        <div className="flex min-w-0 flex-1 items-center gap-2 pt-4 pb-1 pl-3">
           <div className="min-w-0 flex-1">
-            <h3 className="mb-1 leading-snug text-sm font-medium text-balance">
-              {project.title}
-              {project.date && (
-                <span className="ml-2 text-[11px] font-normal text-subtle">{project.date}</span>
-              )}
-            </h3>
+            <h3 className="leading-snug text-sm font-medium text-balance">{project.title}</h3>
           </div>
           {project.link && (
             <a
@@ -80,7 +82,8 @@ function ProjectRow({ project }: { project: ProjectItemData }) {
         </div>
       </div>
 
-      <div className="space-y-4 pl-1 pr-4 pb-4">
+      <div className="space-y-1.5 pl-11 pr-4 pb-4">
+        {project.date && <p className="text-[11px] text-subtle">{project.date}</p>}
         {project.description && (
           <p className="text-xs leading-relaxed text-muted">{project.description}</p>
         )}

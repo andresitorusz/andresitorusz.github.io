@@ -2,6 +2,15 @@
   animation: fade-in 0.4s ease-out both;
 }
 
+/* Theme-aware brand marks: one element, the mark swaps with the theme. */
+.logoGithub {
+  background-image: url('/assets/logos/github-dark.png');
+}
+
+:global(.dark) .logoGithub {
+  background-image: url('/assets/logos/github-light.png');
+}
+
 @keyframes fade-in {
   from {
     opacity: 0;

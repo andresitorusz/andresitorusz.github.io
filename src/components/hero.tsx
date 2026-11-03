@@ -5,13 +5,17 @@ import { obfuscate } from 'lib/obfuscate';
 import { CONTENT } from 'data/content';
 import styles from 'styles/site.module.css';
 
-// Real brand marks, shown grayscale and colored on hover.
-const SOCIAL_LOGOS = {
-  github: '/assets/logos/social-github.png',
-  linkedin: '/assets/logos/social-linkedin.png',
-  twitter: '/assets/logos/social-x.png',
-  youtube: '/assets/logos/social-youtube.png',
-  email: '/assets/logos/social-gmail.png'
+// Real brand marks; GitHub is a theme-aware CSS class, the rest plain images.
+const SOCIAL_LOGOS: Record<string, { light: string; dark?: string }> = {
+  github: { light: '/assets/logos/github-dark.png', dark: '/assets/logos/github-light.png' },
+  linkedin: { light: '/assets/logos/social-linkedin.png' },
+  twitter: { light: '/assets/logos/x.png' },
+  youtube: { light: '/assets/logos/social-youtube.png' },
+  email: { light: '/assets/logos/social-gmail.png' }
+};
+
+const THEME_LOGOS: Record<string, string> = {
+  github: styles.logoGithub
 };
 
 const HIGHLIGHT = 'Data Engineer';
@@ -67,6 +71,7 @@ export function Hero() {
             .map((social) => {
               const isEmail = social.name === 'email';
               const href = isEmail ? `mailto:${obfuscate(PROFILE.email)}` : social.href;
+              const logo = SOCIAL_LOGOS[social.name];
               return (
                 <li key={social.name}>
                   <a
@@ -77,13 +82,23 @@ export function Hero() {
                     title={social.title}
                     className="group inline-flex size-9 items-center justify-center rounded-full border border-border bg-card text-foreground/80 transition-colors duration-150 hover:text-foreground"
                   >
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={SOCIAL_LOGOS[social.name]}
-                      alt=""
-                      aria-hidden
-                      className="size-[18px] object-contain grayscale transition-[filter] duration-300 group-hover:grayscale-0"
-                    />
+                    {THEME_LOGOS[social.name] ? (
+                      <span
+                        aria-hidden
+                        className={cn(
+                          THEME_LOGOS[social.name],
+                          'size-[18px] bg-contain bg-center bg-no-repeat'
+                        )}
+                      />
+                    ) : (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img
+                        src={logo.light}
+                        alt=""
+                        aria-hidden
+                        className="size-[18px] object-contain"
+                      />
+                    )}
                   </a>
                 </li>
               );

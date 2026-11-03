@@ -15,7 +15,7 @@ export function Education() {
                 alt={`${item.campus} logo`}
                 width="24"
                 height="24"
-                className="mx-1 size-6 shrink-0 object-contain grayscale transition-[filter] duration-300 group-hover/education:grayscale-0"
+                className="mx-1 size-6 shrink-0 object-contain"
               />
             ) : (
               <div className="mx-1 flex size-6 shrink-0 items-center justify-center rounded-md border border-muted/15 bg-card text-muted">

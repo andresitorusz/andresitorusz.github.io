@@ -15,7 +15,7 @@ export function Certifications() {
                 alt={`${license.issuer} logo`}
                 width="24"
                 height="24"
-                className="mx-1 size-6 shrink-0 rounded-full object-contain grayscale transition-[filter] duration-300 group-hover/license:grayscale-0"
+                className="mx-1 size-6 shrink-0 rounded-full object-contain"
               />
             )}
             <div className="min-w-0 flex-1">
