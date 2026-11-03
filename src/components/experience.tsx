@@ -39,7 +39,7 @@ export function Experience() {
 }
 
 function ExperienceRow({ experience }: { experience: ExperienceItemData }) {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
   const position = experience.positions[0];
   const { start, end } = position.employmentPeriod;
 
