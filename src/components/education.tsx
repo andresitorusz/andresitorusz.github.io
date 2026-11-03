@@ -26,7 +26,7 @@ export function Education() {
               <h3 className="text-sm font-medium">{item.degree}</h3>
               <p className="text-xs text-muted">{item.campus}</p>
               {item.period && (
-                <p className="mt-0.5 text-xs text-muted">
+                <p className="mt-1 text-xs text-muted">
                   {item.period.start} – {item.period.end ?? 'present'}
                 </p>
               )}

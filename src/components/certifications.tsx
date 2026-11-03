@@ -22,14 +22,14 @@ export function Certifications() {
               <h3 className="text-sm font-medium">{license.title}</h3>
               <p className="text-xs text-muted">{license.issuer}</p>
               {(license.issued || license.expires) && (
-                <p className="mt-0.5 text-xs text-muted">
+                <p className="mt-1 text-xs text-muted">
                   {license.issued && `Issued ${license.issued}`}
                   {license.issued && license.expires && ' · '}
                   {license.expires && `Expires ${license.expires}`}
                 </p>
               )}
               {license.credentialId && (
-                <p className="mt-0.5 text-xs text-subtle">Credential ID: {license.credentialId}</p>
+                <p className="mt-1 text-xs text-subtle">Credential ID: {license.credentialId}</p>
               )}
             </div>
             {license.credentialUrl && (

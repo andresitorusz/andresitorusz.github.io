@@ -78,7 +78,7 @@ function ExperienceRow({ experience }: { experience: ExperienceItemData }) {
             </span>
           )}
         </h3>
-        <dl className="mt-0.5 flex items-center gap-2 text-xs text-muted">
+        <dl className="mt-1 flex items-center gap-2 text-xs text-muted">
           <dd className="flex items-center gap-0.5 tabular-nums">
             {start && <span>{start}</span>}
             <span>—</span>
@@ -88,7 +88,7 @@ function ExperienceRow({ experience }: { experience: ExperienceItemData }) {
           <dd className="tabular-nums">{formatDuration(start, end)}</dd>
         </dl>
         {position.skills && (
-          <ul className="flex flex-wrap gap-1.5 pt-2">
+          <ul className="flex flex-wrap gap-1.5 pt-1">
             {position.skills.map((skill) => (
               <li
                 key={skill}

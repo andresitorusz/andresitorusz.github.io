@@ -53,7 +53,7 @@ export function Resume() {
                         key={highlight}
                         className="flex gap-2 text-xs leading-relaxed text-muted"
                       >
-                        <span className="mt-0.5 shrink-0 text-accent">▸</span>
+                        <span className="mt-1 shrink-0 text-accent">▸</span>
                         {highlight}
                       </li>
                     ))}

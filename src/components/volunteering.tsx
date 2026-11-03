@@ -41,7 +41,7 @@ function VolunteeringRow({ item }: { item: VolunteeringItemData }) {
 
   return (
     <div>
-      <div className="flex items-center gap-3">
+      <div className="flex items-start gap-3">
         {item.logo && (
           // eslint-disable-next-line @next/next/no-img-element
           <img
@@ -55,7 +55,7 @@ function VolunteeringRow({ item }: { item: VolunteeringItemData }) {
         <div className="min-w-0 flex-1">
           <h3 className="text-sm font-medium">{item.role ?? item.organization}</h3>
           {item.role && <p className="text-xs text-muted">{item.organization}</p>}
-          {item.periodText && <p className="mt-0.5 text-xs text-muted">{item.periodText}</p>}
+          {item.periodText && <p className="mt-1 text-xs text-muted">{item.periodText}</p>}
         </div>
         <button
           type="button"

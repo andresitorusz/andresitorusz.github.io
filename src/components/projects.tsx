@@ -14,7 +14,7 @@ export function Projects() {
 
   return (
     <Panel id="projects" title="Projects">
-      <ul>
+      <ul className="space-y-4 py-4">
         {visible.map((project) => (
           <ProjectRow key={project.id} project={project} />
         ))}
@@ -44,7 +44,8 @@ function ProjectRow({ project }: { project: ProjectItemData }) {
 
   return (
     <li>
-      <div className="relative flex items-center">
+      {/* Same structure and gaps as Licenses & Certifications. */}
+      <div className="flex items-start gap-3">
         {isGithubFallback ? (
           <ThemedLogo variant="github" className="mx-1 size-6 shrink-0" />
         ) : logo ? (
@@ -61,40 +62,35 @@ function ProjectRow({ project }: { project: ProjectItemData }) {
             <Box className="size-4" />
           </div>
         )}
-        <div className="flex min-w-0 flex-1 items-center gap-2 pt-4 pb-1 pl-3">
-          <div className="min-w-0 flex-1">
-            <h3 className="leading-snug text-sm font-medium text-balance">{project.title}</h3>
-          </div>
-          {project.link && (
-            <a
-              href={project.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Open project"
-              className="relative z-[1] flex size-6 shrink-0 items-center justify-center text-accent transition-opacity duration-150 hover:opacity-80"
-            >
-              <LinkIcon className="size-4" />
-            </a>
+        <div className="min-w-0 flex-1">
+          <h3 className="text-sm font-medium text-balance">{project.title}</h3>
+          {project.date && <p className="text-xs text-subtle">{project.date}</p>}
+          {project.description && (
+            <p className="mt-1 text-xs leading-relaxed text-muted">{project.description}</p>
+          )}
+          {project.skills.length > 0 && (
+            <ul className="mt-1 flex flex-wrap gap-1.5">
+              {project.skills.map((skill) => (
+                <li
+                  key={skill}
+                  className="rounded-full bg-card px-1.5 py-0.5 text-[11px] text-muted"
+                >
+                  {skill}
+                </li>
+              ))}
+            </ul>
           )}
         </div>
-      </div>
-
-      <div className="space-y-1.5 pl-11 pr-4 pb-4">
-        {project.date && <p className="text-[11px] text-subtle">{project.date}</p>}
-        {project.description && (
-          <p className="text-xs leading-relaxed text-muted">{project.description}</p>
-        )}
-        {project.skills.length > 0 && (
-          <ul className="flex flex-wrap gap-1.5">
-            {project.skills.map((skill) => (
-              <li
-                key={skill}
-                className="rounded-full bg-card px-1.5 py-0.5 text-[11px] text-muted"
-              >
-                {skill}
-              </li>
-            ))}
-          </ul>
+        {project.link && (
+          <a
+            href={project.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open project"
+            className="flex size-6 shrink-0 items-center justify-center text-accent transition-opacity duration-150 hover:opacity-80"
+          >
+            <LinkIcon className="size-4" />
+          </a>
         )}
       </div>
     </li>
