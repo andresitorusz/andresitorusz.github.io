@@ -39,6 +39,7 @@ export function Experience() {
 }
 
 function ExperienceRow({ experience }: { experience: ExperienceItemData }) {
+  const [open, setOpen] = useState(false);
   const position = experience.positions[0];
   const { start, end } = position.employmentPeriod;
 
@@ -87,8 +88,18 @@ function ExperienceRow({ experience }: { experience: ExperienceItemData }) {
           <span className="tabular-nums text-subtle">·</span>
           <dd className="tabular-nums">{formatDuration(start, end)}</dd>
         </dl>
+        {open && position.highlights && (
+          <ul className="mt-1 space-y-1">
+            {position.highlights.map((highlight) => (
+              <li key={highlight} className="flex gap-2 text-xs leading-relaxed text-muted">
+                <span className="shrink-0 text-accent">▸</span>
+                {highlight}
+              </li>
+            ))}
+          </ul>
+        )}
         {position.skills && (
-          <ul className="flex flex-wrap gap-1.5 pt-1">
+          <ul className="mt-1 flex flex-wrap gap-1.5">
             {position.skills.map((skill) => (
               <li
                 key={skill}
@@ -100,6 +111,19 @@ function ExperienceRow({ experience }: { experience: ExperienceItemData }) {
           </ul>
         )}
       </div>
+      {position.highlights && (
+        <button
+          type="button"
+          onClick={() => setOpen((value) => !value)}
+          aria-expanded={open}
+          aria-label={open ? 'Hide description' : 'Show description'}
+          className="flex size-6 shrink-0 items-center justify-center text-accent transition-opacity duration-150 hover:opacity-80"
+        >
+          <ChevronDown
+            className={cn('size-4 transition-transform duration-200', open && 'rotate-180')}
+          />
+        </button>
+      )}
     </div>
   );
 }

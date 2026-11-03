@@ -93,7 +93,7 @@ export const EXPERIENCES: ExperienceItemData[] = [
           'Java', 'Kafka', 'Metabase', 'Python', 'Terraform'
         ],
         highlights: [
-          '...'
+          'Making Magic Happen.'
         ]
       }
     ]
