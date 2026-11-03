@@ -88,8 +88,8 @@ export const EXPERIENCES: ExperienceItemData[] = [
         title: 'Senior Data Engineer',
         employmentPeriod: { start: 'Jul 2026' },
         skills: [
-          'Apache (Airflow, Flink, Spark)', 'Argo CD', 'Atlassian (Confluence, Jira)', 'dbt', 'Debezium','GitHub', 'Go',
-          'Google Cloud Platform (Artifact Registry, BigQuery, Cloud Storage, Kubernetes Engine, Secret Manager)',
+          'Apache (Airflow, Flink, Spark)', 'Argo CD', 'Atlassian (Confluence, Jira)', 'dbt', 'Debezium','GitHub', 'Docker',
+          'Go', 'Google Cloud Platform (Artifact Registry, BigQuery, Cloud Storage, Kubernetes Engine, Secret Manager)',
           'Java', 'Kafka', 'Metabase', 'Python', 'SQL', 'Terraform'
         ],
         highlights: [
@@ -108,12 +108,12 @@ export const EXPERIENCES: ExperienceItemData[] = [
         id: 'goto-group-data-engineer',
         title: 'Data Engineer',
         employmentPeriod: { start: 'Oct 2024', end: 'Jun 2026' },
-        skills: ['Alibaba Cloud (MaxCompute, DataWorks, OSS)', 'Apache Airflow', 'GitLab', 'Google Cloud Platform (BigQuery, Cloud Storage)', 'Python', 'SQL'],
+        skills: ['Alibaba Cloud (MaxCompute, DataWorks, OSS)', 'Apache Airflow', 'Docker', 'GitLab', 'Google Cloud Platform (BigQuery, Cloud Storage)', 'Python', 'SQL'],
         highlights: [
           'Integrated third-party data sources, streamlined ingestion of external data into the internal data warehouse, and staged data as requested by analysts.',
-          'Recreated old ungoverned tables and their columns by following the internal and data warehouse team\'s new governance.',
-          'Designed and implemented standardized pipeline templates across existing and new workflows, significantly improving team efficiency and system maintainability.',
-          'Migrated all team resources from Google Cloud Platform to Alibaba Cloud.'
+          'Enforced data governance policies by refactoring legacy tables to ensure structural integrity and strict internal compliance.',
+          'Standardized data workflows by developing scalable pipeline templates, driving engineering efficiency and ensuring consistent maintainability across all data products.',
+          'Executed the end-to-end migration of the team\'s data resources from Google Cloud Platform to Alibaba Cloud.'
         ]
       }
     ]
@@ -127,13 +127,13 @@ export const EXPERIENCES: ExperienceItemData[] = [
         id: 'sirclo-data-engineer',
         title: 'Data Engineer',
         employmentPeriod: { start: 'Jun 2023', end: 'Sep 2024' },
-        skills: ['Apache (Airflow, Spark)', 'DataHub', 'dbt', 'Google Cloud Platform (Artifact Registry, BigQuery, Cloud Run, Cloud Storage, Kubernetes Engine)', 'Jenkins', 'Phabricator', 'Python', 'Scala', 'Streamlit', 'SQL'],
+        skills: ['Apache (Airflow, Spark)', 'DataHub', 'dbt', 'Docker', 'Google Cloud Platform (Artifact Registry, BigQuery, Cloud Run, Cloud Storage, Kubernetes Engine)', 'Jenkins', 'Phabricator', 'Python', 'Scala', 'Streamlit', 'SQL'],
         highlights: [
-          'Accelerated data pipeline creation and execution by developing a custom framework that automates dynamic batch pipeline generation and maintenance, leveraging Apache Airflow and Apache Spark on Google Kubernetes Engine (GKE).',
-          'Enhanced data accessibility by developing an in-house Streamlit application on GKE, enabling users to interact with BigQuery seamlessly.',
-          'Centralized metadata management by deploying DataHub on GKE, unified the data lineage across Apache Airflow, BigQuery, dbt, transactional databases, and Superset.',
-          'Increased pipeline performance and reliability by upgrading Apache Airflow from 2.0.2 to 2.5.0, migrated and addressed breaking changes across all data pipelines.',
-          'Revamped and containerized the codebase automating in-house third-party API crawling and web scraping pipelines, standardizing orchestration with Apache Airflow.'
+          'Accelerated data pipeline development by engineering a custom framework for dynamic batch generation and maintenance, leveraging Apache Airflow and Apache Spark on Google Kubernetes Engine (GKE).',
+          'Enhanced data accessibility by developing an in-house Streamlit application on GKE, enabling users to interact with Google BigQuery seamlessly.',
+          'Centralized metadata management by deploying DataHub on GKE, unifying end-to-end data lineage across Apache Airflow, Google BigQuery, dbt, Apache Superset, and transactional databases.',
+          'Boosted pipeline performance and reliability by spearheading a major Apache Airflow upgrade (2.0.2 to 2.5.0), proactively resolving breaking changes and migrating all production pipelines.',
+          'Modernized external data ingestion by containerizing legacy API crawling and web scraping codebases, and standardizing their orchestration through Apache Airflow.'
         ]
       }
     ]
@@ -148,13 +148,13 @@ export const EXPERIENCES: ExperienceItemData[] = [
         id: 'tokopedia-data-engineer',
         title: 'Data Engineer',
         employmentPeriod: { start: 'Mar 2022', end: 'May 2023' },
-        skills: ['Apache (Airflow, Beam)', 'Debezium', 'GitHub', 'Go', 'Google Cloud Platform (Artifact Registry, BigQuery, Cloud Storage, Dataflow, Kubernetes Engine, Pub/Sub, Secret Manager)', 'Java', 'Jenkins', 'Python', 'SQL'],
+        skills: ['Apache (Airflow, Beam)', 'Atlassian (Confluence, Jira)', 'Debezium', 'Docker', 'GitHub', 'Go', 'Google Cloud Platform (Artifact Registry, BigQuery, Cloud Storage, Dataflow, Kubernetes Engine, Pub/Sub, Secret Manager)', 'Java', 'Jenkins', 'Python', 'SQL'],
         highlights: [
-          'Accelerated and simplified data process orchestration by developing a custom framework for automated dynamic batch pipeline generation on Apache Airflow and Apache Beam with Dataflow Runner, managing the scheduling of all data workflows.',
-          'Enabled low-latency data synchronization between operational databases and the data warehouse by developing a near real-time replication pipeline using Apache Beam, Dataflow, Debezium Server, GKE, and Pub/Sub.',
-          'Supported our product team to track and analyze the client or server-side events by developing a Go-based SDK to publish data to Pub/Sub with a Java-based high-throughput consumer pipeline to ingest and process the data in near real-time.',
-          'Secured the integration between GKE service accounts and Google Cloud service accounts using Workload Identity to manage containerized custom tasks.',
-          'Easier the batch and near real-time data pipeline creation for our users by developing Go-based self-serve data platforms for data pipeline creation with two versions: one integrated with a dedicated JIRA board, and the other using a REST API.'
+          'Developed a custom framework for automated, dynamic batch pipeline generation using Apache Airflow and Apache Beam on Google Dataflow.',
+          'Developed a low-latency, near real-time data replication pipeline from operational databases to data warehouse by utilizing Apache Beam, Google Dataflow, Debezium, GKE, and Google Pub/Sub.',
+          'Enabled real-time product event analytics by developing a Go-based SDK for Pub/Sub ingestion and a high-throughput Java consumer pipeline to process client and server-side events.',
+          'Strengthened infrastructure security by implementing Workload Identity, ensuring seamless and secure authentication between GKE and Google Cloud service accounts for custom containerized tasks.',
+          'Democratized data workflows by developing Go-based self-serve platforms for batch and real-time pipeline creation, featuring both a Jira-integrated interface and a REST API.'
         ]
       }
     ]
