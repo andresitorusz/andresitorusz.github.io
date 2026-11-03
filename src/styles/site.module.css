@@ -110,6 +110,21 @@
   min-height: 0;
 }
 
+/* Bouncing indicator for the CTA. */
+.bounce {
+  animation: bounce-down 1.2s infinite;
+}
+
+@keyframes bounce-down {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .fadeIn {
     animation: none;
@@ -117,5 +132,9 @@
 
   .collapsible {
     transition: none;
+  }
+
+  .bounce {
+    animation: none;
   }
 }

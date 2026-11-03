@@ -43,7 +43,6 @@ export const PROFILE = {
   avatar: '/assets/pfp.png',
   location: 'Jakarta, Indonesia',
   email: 'andresitorusz.19@gmail.com',
-  phone: '(+62) 821-6600-6672',
   timeZone: 'Asia/Jakarta',
   githubUsername: GITHUB_USERNAME,
   githubUrl: `https://github.com/${GITHUB_USERNAME}`,

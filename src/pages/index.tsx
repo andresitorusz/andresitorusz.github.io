@@ -7,6 +7,7 @@ import { Education } from 'components/education';
 import { Certifications } from 'components/certifications';
 import { Projects } from 'components/projects';
 import { Volunteering } from 'components/volunteering';
+import { Cta } from 'components/cta';
 import { Activity, fetchGitHubContributions } from 'lib/github-contributions';
 
 export default function Home() {
@@ -29,6 +30,7 @@ export default function Home() {
       <Education />
       <Projects />
       <Volunteering />
+      <Cta />
     </>
   );
 }

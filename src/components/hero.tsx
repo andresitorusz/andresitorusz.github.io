@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { PROFILE } from 'data/profile';
 import { cn } from 'lib/cn';
-import { obfuscate } from 'lib/obfuscate';
 import { CONTENT } from 'data/content';
 import styles from 'styles/site.module.css';
 import { ThemedLogo } from './themed-logo';
@@ -70,33 +69,45 @@ export function Hero() {
             .filter((social) => social.href)
             .map((social) => {
               const isEmail = social.name === 'email';
-              const href = isEmail ? `mailto:${obfuscate(PROFILE.email)}` : social.href;
               const logo = SOCIAL_LOGOS[social.name];
+              const content = THEMED_SOCIAL_LOGOS[social.name] ? (
+                <ThemedLogo variant={THEMED_SOCIAL_LOGOS[social.name]} className="size-[18px]" />
+              ) : (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img src={logo} alt="" aria-hidden className="size-[18px] object-contain" />
+              );
+              const className =
+                'group inline-flex size-9 items-center justify-center rounded-full border border-border bg-card text-foreground/80 transition-colors duration-150 hover:text-foreground';
               return (
                 <li key={social.name}>
-                  <a
-                    href={href}
-                    target={isEmail ? undefined : '_blank'}
-                    rel={isEmail ? undefined : 'noopener noreferrer'}
-                    aria-label={social.title}
-                    title={social.title}
-                    className="group inline-flex size-9 items-center justify-center rounded-full border border-border bg-card text-foreground/80 transition-colors duration-150 hover:text-foreground"
-                  >
-                    {THEMED_SOCIAL_LOGOS[social.name] ? (
-                      <ThemedLogo
-                        variant={THEMED_SOCIAL_LOGOS[social.name]}
-                        className="size-[18px]"
-                      />
-                    ) : (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img
-                        src={logo}
-                        alt=""
-                        aria-hidden
-                        className="size-[18px] object-contain"
-                      />
-                    )}
-                  </a>
+                  {isEmail ? (
+                    // Button (not a link) so no "#" preview shows; compose built on click.
+                    <button
+                      type="button"
+                      onClick={() =>
+                        window.open(
+                          `https://mail.google.com/mail/u/0/?to=${PROFILE.email}&fs=1&tf=cm`,
+                          '_blank'
+                        )
+                      }
+                      aria-label={social.title}
+                      title={social.title}
+                      className={cn(className, 'cursor-pointer')}
+                    >
+                      {content}
+                    </button>
+                  ) : (
+                    <a
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={social.title}
+                      title={social.title}
+                      className={className}
+                    >
+                      {content}
+                    </a>
+                  )}
                 </li>
               );
             })}
