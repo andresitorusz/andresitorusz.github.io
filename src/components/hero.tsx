@@ -42,6 +42,7 @@ export function Hero() {
               <img
                 src={PROFILE.avatar}
                 alt={PROFILE.displayName}
+                fetchPriority="high"
                 className="w-[7.5rem] select-none sm:w-40"
               />
             </div>
