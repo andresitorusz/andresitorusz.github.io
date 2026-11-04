@@ -4,17 +4,17 @@
 
 /* Theme-aware brand marks: ThemedLogo consumes these, the .dark block swaps them. */
 :root {
-  --logo-github: url('/assets/logos/github-dark.png');
-  --logo-x: url('/assets/logos/x-dark.png');
-  --logo-sirclo: url('/assets/logos/sirclo-dark.png');
-  --logo-del: url('/assets/logos/del-dark.png');
+  --logo-github: url('/assets/logos/github-dark.webp');
+  --logo-x: url('/assets/logos/x-dark.webp');
+  --logo-sirclo: url('/assets/logos/sirclo-dark.webp');
+  --logo-del: url('/assets/logos/del-dark.webp');
 }
 
 :global(.dark) {
-  --logo-github: url('/assets/logos/github-light.png');
-  --logo-x: url('/assets/logos/x-light.png');
-  --logo-sirclo: url('/assets/logos/sirclo-light.png');
-  --logo-del: url('/assets/logos/del-light.png');
+  --logo-github: url('/assets/logos/github-light.webp');
+  --logo-x: url('/assets/logos/x-light.webp');
+  --logo-sirclo: url('/assets/logos/sirclo-light.webp');
+  --logo-del: url('/assets/logos/del-light.webp');
 }
 
 @keyframes fade-in {

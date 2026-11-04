@@ -25,7 +25,7 @@ export function Cta() {
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/assets/logos/social-gmail.png"
+            src="/assets/logos/social-gmail.webp"
             alt=""
             aria-hidden
             className="size-[18px] object-contain"
@@ -40,7 +40,7 @@ export function Cta() {
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/assets/logos/social-linkedin.png"
+            src="/assets/logos/social-linkedin.webp"
             alt=""
             aria-hidden
             className="size-[18px] object-contain"

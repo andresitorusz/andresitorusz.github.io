@@ -40,7 +40,7 @@ const socials: Social[] = [
 export const PROFILE = {
   displayName: 'Andre Yehuda Sitorus',
   firstName: 'Andre',
-  avatar: '/assets/pfp.png',
+  avatar: '/assets/pfp.webp',
   location: 'Jakarta, Indonesia',
   email: 'andresitorusz.19@gmail.com',
   timeZone: 'Asia/Jakarta',
@@ -78,7 +78,7 @@ export const EXPERIENCES: ExperienceItemData[] = [
   {
     id: 'ajaib',
     companyName: 'Ajaib',
-    companyLogo: '/assets/logos/ajaib.png',
+    companyLogo: '/assets/logos/ajaib.webp',
     logoShape: 'rounded-square',
     isCurrentEmployer: true,
     positions: [
@@ -101,7 +101,7 @@ export const EXPERIENCES: ExperienceItemData[] = [
   {
     id: 'goto-group',
     companyName: 'GoTo Group',
-    companyLogo: '/assets/logos/goto.png',
+    companyLogo: '/assets/logos/goto.webp',
     logoShape: 'full',
     positions: [
       {
@@ -148,7 +148,7 @@ export const EXPERIENCES: ExperienceItemData[] = [
   {
     id: 'tokopedia',
     companyName: 'Tokopedia',
-    companyLogo: '/assets/logos/tokopedia.png',
+    companyLogo: '/assets/logos/tokopedia.webp',
     logoShape: 'full',
     positions: [
       {
@@ -174,7 +174,7 @@ export const EXPERIENCES: ExperienceItemData[] = [
   {
     id: 'blibli',
     companyName: 'Blibli',
-    companyLogo: '/assets/logos/blibli.png',
+    companyLogo: '/assets/logos/blibli.webp',
     logoShape: 'full',
     positions: [
       {
@@ -231,7 +231,7 @@ export const LICENSES: LicenseItemData[] = [
     id: 'gcp-professional-data-engineer',
     title: 'Professional Data Engineer',
     issuer: 'Google Cloud',
-    issuerLogo: '/assets/logos/gcp.png',
+    issuerLogo: '/assets/logos/gcp.webp',
     issued: 'Oct 2024',
     expires: 'Oct 2027',
     credentialId: 'c890643b57af405db80b1e0c5f46eafa',
@@ -241,7 +241,7 @@ export const LICENSES: LicenseItemData[] = [
     id: 'binar-quality-assurance-bootcamp',
     title: 'Quality Assurance Bootcamp',
     issuer: 'Binar Academy',
-    issuerLogo: '/assets/logos/binar.png',
+    issuerLogo: '/assets/logos/binar.webp',
     issued: 'Mar 2023',
     credentialUrl: 'https://drive.google.com/file/d/1RA1Zwu-AoZo1NsplqN0wge5S5eZ9-SCL/view?pli=1'
   },
@@ -249,7 +249,7 @@ export const LICENSES: LicenseItemData[] = [
     id: 'coursera-gcp-specialization',
     title: 'Developing Applications with Google Cloud Platform Specialization',
     issuer: 'Coursera',
-    issuerLogo: '/assets/logos/coursera.png',
+    issuerLogo: '/assets/logos/coursera.webp',
     issued: 'Apr 2020',
     credentialId: 'KYC3MFTXPU5W',
     credentialUrl: 'https://coursera.org/share/84585f9e1bb9e2a657e21bba80e13c3c'
@@ -301,7 +301,7 @@ export const VOLUNTEERING: VolunteeringItemData[] = [
   {
     id: 'cloud-study-jams',
     organization: 'Google',
-    logo: '/assets/logos/google.png',
+    logo: '/assets/logos/google.webp',
     role: 'Facilitator of Cloud Study Jams',
     periodText: 'Nov 2019 · 1 mo',
     description:
@@ -310,7 +310,7 @@ export const VOLUNTEERING: VolunteeringItemData[] = [
   {
     id: 'developer-student-clubs',
     organization: 'Google',
-    logo: '/assets/logos/google.png',
+    logo: '/assets/logos/google.webp',
     role: 'Lead of Developer Student Clubs',
     periodText: 'Aug 2019 - Jul 2020 · 1 yr',
     credentialUrl: 'https://drive.google.com/file/d/1EfzH89gUANt5s6FDtjyrcXpEsqhHAQPG/view?usp=sharing',
@@ -329,7 +329,7 @@ export const VOLUNTEERING: VolunteeringItemData[] = [
   {
     id: 'bebras',
     organization: 'Bebras Indonesia',
-    logo: '/assets/logos/bebras.png',
+    logo: '/assets/logos/bebras.webp',
     role: 'Committee Member',
     periodText: 'Oct 2018 · 1 mo',
     description:

@@ -11,7 +11,7 @@ import { Cta } from 'components/cta';
 import { Activity, fetchGitHubContributions } from 'lib/github-contributions';
 
 export default function Home() {
-  const [contributions, setContributions] = useState<Activity[]>([]);
+  const [contributions, setContributions] = useState<Activity[] | null>(null);
 
   useEffect(() => {
     fetchGitHubContributions().then(setContributions);
@@ -19,12 +19,9 @@ export default function Home() {
 
   return (
     <>
-      <Meta
-        title="ye"
-        description="My loopbaanlogboek."
-      />
+      <Meta title="ye" description="My loopbaanlogboek." />
       <Hero />
-      <Contributions contributions={contributions} />
+      <Contributions contributions={contributions ?? []} loading={contributions === null} />
       <Experience />
       <Certifications />
       <Education />

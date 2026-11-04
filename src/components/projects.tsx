@@ -40,7 +40,7 @@ export function Projects() {
 function ProjectRow({ project }: { project: ProjectItemData }) {
   // A GitHub link gets the GitHub mark (theme-aware); otherwise fall back to the box tile.
   const isGithubFallback = !project.logo && !!project.link?.includes('github.com');
-  const logo = project.logo ?? (isGithubFallback ? '/assets/logos/github-dark.png' : undefined);
+  const logo = project.logo ?? (isGithubFallback ? '/assets/logos/github-dark.webp' : undefined);
 
   return (
     <li>
