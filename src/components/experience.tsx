@@ -11,15 +11,24 @@ const VISIBLE_COUNT = 3;
 
 export function Experience() {
   const [showAll, setShowAll] = useState(false);
-  const visible = showAll ? EXPERIENCES : EXPERIENCES.slice(0, VISIBLE_COUNT);
-  const hiddenCount = EXPERIENCES.length - VISIBLE_COUNT;
+  const always = EXPERIENCES.slice(0, VISIBLE_COUNT);
+  const hidden = EXPERIENCES.slice(VISIBLE_COUNT);
+  const hiddenCount = hidden.length;
 
   return (
     <Panel id="experience" title="Work Experience">
       <div className="space-y-4 py-4">
-        {visible.map((experience) => (
+        {always.map((experience) => (
           <ExperienceRow key={experience.id} experience={experience} />
         ))}
+        {/* Extra rows animate open/closed with the Show more/less toggle. */}
+        <div className={cn(styles.collapsible, showAll && styles.collapsibleOpen)}>
+          <div className="space-y-4">
+            {hidden.map((experience) => (
+              <ExperienceRow key={experience.id} experience={experience} />
+            ))}
+          </div>
+        </div>
       </div>
       {hiddenCount > 0 && (
         <div className="pb-4">

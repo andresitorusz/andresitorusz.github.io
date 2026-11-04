@@ -10,15 +10,24 @@ const VISIBLE_COUNT = 3;
 
 export function Volunteering() {
   const [showAll, setShowAll] = useState(false);
-  const visible = showAll ? VOLUNTEERING : VOLUNTEERING.slice(0, VISIBLE_COUNT);
-  const hiddenCount = VOLUNTEERING.length - VISIBLE_COUNT;
+  const always = VOLUNTEERING.slice(0, VISIBLE_COUNT);
+  const hidden = VOLUNTEERING.slice(VISIBLE_COUNT);
+  const hiddenCount = hidden.length;
 
   return (
     <Panel id="volunteering" title="Volunteer Experience">
       <div className="space-y-4 py-4">
-        {visible.map((item) => (
+        {always.map((item) => (
           <VolunteeringRow key={item.id} item={item} />
         ))}
+        {/* Extra rows animate open/closed with the Show more/less toggle. */}
+        <div className={cn(styles.collapsible, showAll && styles.collapsibleOpen)}>
+          <div className="space-y-4">
+            {hidden.map((item) => (
+              <VolunteeringRow key={item.id} item={item} />
+            ))}
+          </div>
+        </div>
       </div>
       {hiddenCount > 0 && (
         <div className="pb-4">
