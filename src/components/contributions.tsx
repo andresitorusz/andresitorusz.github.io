@@ -37,11 +37,12 @@ export function Contributions({
 
   const weeks = useMemo(() => groupByWeeks(contributions), [contributions]);
 
-  // When the year doesn't fit, start at the most recent weeks.
+  // When the year doesn't fit, start at the most recent weeks. Re-runs once the
+  // graph replaces the loading skeleton (scrollRef exists only after that).
   useEffect(() => {
     const el = scrollRef.current;
     if (el) el.scrollLeft = el.scrollWidth;
-  }, []);
+  }, [loading]);
 
   // Fixed-height skeleton while the GitHub data loads: no layout shift.
   if (loading) {
@@ -69,7 +70,7 @@ export function Contributions({
     <Panel srOnly title="GitHub contributions">
       <figure>
         <div
-          className="flex w-max max-w-full flex-col gap-4 py-4"
+          className="flex flex-col gap-4 py-4"
           style={{ fontSize: FONT_SIZE }}
           aria-label="GitHub Contributions Graph"
         >
@@ -79,10 +80,11 @@ export function Contributions({
             aria-hidden
           >
             <svg
-              className="block overflow-visible"
+              className="block min-w-[688px] w-full overflow-visible"
               height={height}
               viewBox={`0 0 ${width} ${height}`}
               width={width}
+              preserveAspectRatio="none"
             >
               <g className="fill-current text-muted">
                 {monthLabels.map(({ label, weekIndex }) => (
