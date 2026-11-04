@@ -26,7 +26,13 @@ const LABEL_MARGIN = 8;
 
 const MONTH_NAMES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
-export function Contributions({ contributions }: { contributions: Activity[] }) {
+export function Contributions({
+  contributions,
+  loading = false
+}: {
+  contributions: Activity[];
+  loading?: boolean;
+}) {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const weeks = useMemo(() => groupByWeeks(contributions), [contributions]);
@@ -36,6 +42,18 @@ export function Contributions({ contributions }: { contributions: Activity[] }) 
     const el = scrollRef.current;
     if (el) el.scrollLeft = el.scrollWidth;
   }, []);
+
+  // Fixed-height skeleton while the GitHub data loads: no layout shift.
+  if (loading) {
+    return (
+      <Panel srOnly title="GitHub contributions">
+        <div className="py-4">
+          <div className="h-[110px] animate-pulse rounded-sm bg-card" />
+          <div className="mt-2 h-3 w-2/5 animate-pulse rounded-sm bg-card" />
+        </div>
+      </Panel>
+    );
+  }
 
   if (!contributions?.length) {
     return null;
