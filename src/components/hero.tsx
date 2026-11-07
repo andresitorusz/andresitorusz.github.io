@@ -7,8 +7,8 @@ import { ThemedLogo } from './themed-logo';
 
 // Plain brand images; GitHub and X use the theme-aware ThemedLogo instead.
 const SOCIAL_LOGOS: Record<string, string> = {
-  linkedin: '/assets/logos/social-linkedin.webp',
-  youtube: '/assets/logos/social-youtube.webp'
+  linkedin: '/assets/logos/linkedin.webp',
+  youtube: '/assets/logos/youtube.webp'
 };
 
 const THEMED_SOCIAL_LOGOS: Record<string, 'github' | 'x'> = {
