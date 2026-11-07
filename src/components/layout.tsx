@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useSyncExternalStore, useState } from 'react';
+import { ReactNode, useSyncExternalStore } from 'react';
 import Link from 'next/link';
 import { useTheme } from 'next-themes';
 import localFont from 'next/font/local';
@@ -91,15 +91,21 @@ function LocalTime() {
     new Intl.DateTimeFormat('en-GB', {
       timeZone: PROFILE.timeZone,
       hour: '2-digit',
-      minute: '2-digit'
+      minute: '2-digit',
+      // en-GB can default to the h24 cycle, which prints "24:05" at midnight.
+      hourCycle: 'h23'
     }).format(new Date());
 
-  const [time, setTime] = useState(format);
-
-  useEffect(() => {
-    const interval = window.setInterval(() => setTime(format()), 30_000);
-    return () => window.clearInterval(interval);
-  }, []);
+  // Client snapshot is computed at hydration, so the clock is correct
+  // immediately on load instead of showing the build-time SSR value.
+  const time = useSyncExternalStore(
+    (onChange) => {
+      const id = window.setInterval(onChange, 30_000);
+      return () => window.clearInterval(id);
+    },
+    () => format(),
+    () => format()
+  );
 
   return (
     <span className="tabular-nums" suppressHydrationWarning>
