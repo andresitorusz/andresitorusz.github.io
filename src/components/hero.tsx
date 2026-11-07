@@ -8,8 +8,7 @@ import { ThemedLogo } from './themed-logo';
 // Plain brand images; GitHub and X use the theme-aware ThemedLogo instead.
 const SOCIAL_LOGOS: Record<string, string> = {
   linkedin: '/assets/logos/social-linkedin.webp',
-  youtube: '/assets/logos/social-youtube.webp',
-  email: '/assets/logos/social-gmail.webp'
+  youtube: '/assets/logos/social-youtube.webp'
 };
 
 const THEMED_SOCIAL_LOGOS: Record<string, 'github' | 'x'> = {
@@ -69,7 +68,6 @@ export function Hero() {
           {PROFILE.socials
             .filter((social) => social.href)
             .map((social) => {
-              const isEmail = social.name === 'email';
               const logo = SOCIAL_LOGOS[social.name];
               const content = THEMED_SOCIAL_LOGOS[social.name] ? (
                 <ThemedLogo variant={THEMED_SOCIAL_LOGOS[social.name]} className="size-[18px]" />
@@ -77,38 +75,18 @@ export function Hero() {
                 // eslint-disable-next-line @next/next/no-img-element
                 <img src={logo} alt="" aria-hidden className="size-[18px] object-contain" />
               );
-              const className =
-                'group inline-flex size-9 items-center justify-center rounded-full border border-border bg-card text-foreground/80 transition-colors duration-150 hover:text-foreground';
               return (
                 <li key={social.name}>
-                  {isEmail ? (
-                    // Button (not a link) so no "#" preview shows; compose built on click.
-                    <button
-                      type="button"
-                      onClick={() =>
-                        window.open(
-                          `https://mail.google.com/mail/u/0/?to=${PROFILE.email}&fs=1&tf=cm`,
-                          '_blank'
-                        )
-                      }
-                      aria-label={social.title}
-                      title={social.title}
-                      className={cn(className, 'cursor-pointer')}
-                    >
-                      {content}
-                    </button>
-                  ) : (
-                    <a
-                      href={social.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={social.title}
-                      title={social.title}
-                      className={className}
-                    >
-                      {content}
-                    </a>
-                  )}
+                  <a
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.title}
+                    title={social.title}
+                    className="group inline-flex size-9 items-center justify-center rounded-full border border-border bg-card text-foreground/80 transition-colors duration-150 hover:text-foreground"
+                  >
+                    {content}
+                  </a>
                 </li>
               );
             })}

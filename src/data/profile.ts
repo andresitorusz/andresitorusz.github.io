@@ -1,6 +1,6 @@
 import { GITHUB_USERNAME } from 'data/constants';
 
-export type SocialName = 'github' | 'linkedin' | 'x' | 'youtube' | 'email';
+export type SocialName = 'github' | 'linkedin' | 'x' | 'youtube';
 
 type Social = { name: SocialName; title: string; handle: string; href: string };
 
@@ -29,18 +29,11 @@ const socials: Social[] = [
     handle: '@andresitorusz',
     href: 'https://www.youtube.com/@andresitorusz'
   },
-  {
-    name: 'email',
-    title: 'Email',
-    handle: 'andresitorusz.19@gmail.com',
-    href: 'mailto:andresitorusz.19@gmail.com'
-  }
 ];
 
 export const PROFILE = {
   displayName: 'Andre Yehuda Sitorus',
   avatar: '/assets/pfp.webp',
-  email: 'andresitorusz.19@gmail.com',
   timeZone: 'Asia/Jakarta',
   githubUsername: GITHUB_USERNAME,
   linkedinUrl: 'https://linkedin.com/in/andresitorusz',

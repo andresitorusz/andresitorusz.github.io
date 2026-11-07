@@ -14,23 +14,6 @@ export function Cta() {
       </p>
       <ArrowDown className={cn(styles.bounce, 'mx-auto mt-2 size-4 text-accent')} aria-hidden />
       <div className="mt-3 flex flex-wrap items-center justify-center gap-2">
-        {/* Built on click so the email never appears in the rendered HTML. */}
-        <button
-          type="button"
-          onClick={() =>
-            window.open(`https://mail.google.com/mail/u/0/?to=${PROFILE.email}&fs=1&tf=cm`, '_blank')
-          }
-          aria-label="get-in-touch-gmail"
-          className="inline-flex size-9 cursor-pointer items-center justify-center rounded-full border border-border bg-card text-foreground/80 transition-colors duration-150 hover:text-foreground"
-        >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/assets/logos/social-gmail.webp"
-            alt=""
-            aria-hidden
-            className="size-[18px] object-contain"
-          />
-        </button>
         <a
           href={PROFILE.linkedinUrl}
           target="_blank"
