@@ -19,7 +19,7 @@ export default function Home() {
 
   return (
     <>
-      <Meta title="ye" description="My loopbaanlogboek." />
+      <Meta title="Yeda - Senior Data Engineer" description="My loopbaanlogboek." />
       <Hero />
       <Contributions contributions={contributions ?? []} loading={contributions === null} />
       <Experience />
