@@ -96,12 +96,19 @@ function LocalTime() {
       hourCycle: 'h23'
     }).format(new Date());
 
-  // Client snapshot is computed at hydration, so the clock is correct
-  // immediately on load instead of showing the build-time SSR value.
+  // Client snapshot at hydration is the exact time on load; ticks then fire at
+  // every minute boundary so the clock never drifts more than a second.
   const time = useSyncExternalStore(
     (onChange) => {
-      const id = window.setInterval(onChange, 30_000);
-      return () => window.clearInterval(id);
+      let timer: number;
+      const tick = () => {
+        onChange();
+        const now = new Date();
+        const msToNextMinute = 60_000 - (now.getSeconds() * 1000 + now.getMilliseconds());
+        timer = window.setTimeout(tick, msToNextMinute + 50);
+      };
+      tick();
+      return () => window.clearTimeout(timer);
     },
     () => format(),
     () => format()
