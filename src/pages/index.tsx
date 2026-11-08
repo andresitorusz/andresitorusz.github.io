@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import Meta from 'components/meta';
 import { Hero } from 'components/hero';
+import { CONTENT } from 'data/content';
 import { Contributions } from 'components/contributions';
 import { Experience } from 'components/experience';
 import { Education } from 'components/education';
@@ -19,7 +20,7 @@ export default function Home() {
 
   return (
     <>
-      <Meta title="Yeda - Senior Data Engineer" description="My loopbaanlogboek." />
+      <Meta title="Ye - Senior Data Engineer" description={CONTENT.bio} />
       <Hero />
       <Contributions contributions={contributions ?? []} loading={contributions === null} />
       <Experience />
