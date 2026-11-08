@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# My GitHub Pages
+
+Built with [Next.js](https://nextjs.org) (Pages Router), React 19, and Tailwind CSS v4. Statically exported and deployed to GitHub Pages.
+
+## Prerequisites
+
+Install these before running the app locally:
+
+- **[Node.js](https://nodejs.org)** — version 20.9 or newer (22 LTS recommended).
+- **npm** — bundled with Node.js.
+
+That's it — all other dependencies are installed from `package.json`.
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+# Install dependencies
+npm install
+
+# Start the dev server (http://localhost:3000)
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Useful Commands
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Command         | What it does                                          |
+| --------------- | ----------------------------------------------------- |
+| `npm run dev`   | Start the dev server with hot reload                  |
+| `npm run build` | Type-check and export the static site to `out/`       |
+| `npm run lint`  | Run ESLint                                            |
+| `npx serve out` | Preview the built site locally after `npm run build`  |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Project Structure
 
-## Learn More
+```
+├── public/            # Static assets served as-is
+│   ├── assets/logos/  #   Brand logos (webp, theme-aware pairs for github/x/sirclo/del)
+│   ├── pfp.webp       #   Profile photo
+│   ├── og.png         #   Open Graph link-preview image
+│   └── favicon.png    #   Tab icon
+├── src/
+│   ├── components/    # Page sections: hero, experience, certifications, education,
+│   │                  #   projects, volunteering, cta, github contributions, layout
+│   ├── data/          # All site content — edit this to change copy or lists
+│   │   ├── profile.ts #   Name, avatar, socials, experiences, licenses, projects, volunteering
+│   │   └── content.ts #   Bio, timezone label
+│   ├── lib/           # Small shared helpers (cn, github-contributions fetch)
+│   ├── pages/         # Routes: index, 404 (plus _app, _document)
+│   └── styles/        # globals.css (design tokens, light/dark palette), module CSS, fonts
+├── next.config.ts     # Static export config for GitHub Pages
+└── .github/workflows/deploy.yml
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Deployment
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Pushing to `main` triggers the GitHub Actions workflow, which builds the static export and publishes the `out/` directory to GitHub Pages. The repository's Pages source must be set to **GitHub Actions** (Settings → Pages).
