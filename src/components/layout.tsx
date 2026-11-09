@@ -3,9 +3,7 @@ import Link from 'next/link';
 import { useTheme } from 'next-themes';
 import localFont from 'next/font/local';
 import { ArrowUp, House, Moon, Sun } from 'lucide-react';
-import { PROFILE } from 'data/profile';
 import { cn } from 'lib/cn';
-import { CONTENT } from 'data/content';
 import styles from 'styles/site.module.css';
 
 const googleSans = localFont({
@@ -46,7 +44,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
 
       <footer className="mx-auto mt-auto w-full max-w-3xl px-6 pb-4 pt-3">
         <div className="flex items-center justify-between text-xs text-subtle">
-          <LocalTime />
+          <span>© 2026 Andre Yehuda Sitorus. All rights reserved.</span>
           <button
             type="button"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
@@ -86,37 +84,3 @@ function ThemeToggle() {
   );
 }
 
-function LocalTime() {
-  const format = () =>
-    new Intl.DateTimeFormat('en-GB', {
-      timeZone: PROFILE.timeZone,
-      hour: '2-digit',
-      minute: '2-digit',
-      // en-GB can default to the h24 cycle, which prints "24:05" at midnight.
-      hourCycle: 'h23'
-    }).format(new Date());
-
-  // Client snapshot at hydration is the exact time on load; ticks then fire at
-  // every minute boundary so the clock never drifts more than a second.
-  const time = useSyncExternalStore(
-    (onChange) => {
-      let timer: number;
-      const tick = () => {
-        onChange();
-        const now = new Date();
-        const msToNextMinute = 60_000 - (now.getSeconds() * 1000 + now.getMilliseconds());
-        timer = window.setTimeout(tick, msToNextMinute + 50);
-      };
-      tick();
-      return () => window.clearTimeout(timer);
-    },
-    () => format(),
-    () => format()
-  );
-
-  return (
-    <span className="tabular-nums" suppressHydrationWarning>
-      {time} {CONTENT.timeZoneLabel}
-    </span>
-  );
-}
