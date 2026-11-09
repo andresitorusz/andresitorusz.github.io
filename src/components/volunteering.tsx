@@ -34,7 +34,7 @@ export function Volunteering() {
           <button
             type="button"
             onClick={() => setShowAll((value) => !value)}
-            className="mx-auto flex items-center gap-1.5 text-xs text-muted transition-colors duration-150 hover:text-accent"
+            className="mx-auto flex items-center gap-1.5 text-xs text-muted transition-colors duration-150 hover:text-accent active:text-accent"
           >
             <ChevronDown
               className={cn('size-3.5 transition-transform duration-200', showAll && 'rotate-180')}

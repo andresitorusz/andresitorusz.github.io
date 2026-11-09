@@ -31,7 +31,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
             <Link
               href="/"
               aria-label="Home"
-              className="text-muted transition-colors duration-150 hover:text-accent"
+              className="text-muted transition-colors duration-150 hover:text-accent active:text-accent"
             >
               <House className="size-4" />
             </Link>
@@ -49,7 +49,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
             type="button"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             aria-label="Back to top"
-            className="inline-flex items-center gap-1 text-muted transition-colors duration-150 hover:text-accent"
+            className="inline-flex items-center gap-1 text-muted transition-colors duration-150 hover:text-accent active:text-accent"
           >
             Top <ArrowUp className="size-3.5" />
           </button>
@@ -77,7 +77,7 @@ function ThemeToggle() {
       type="button"
       onClick={() => setTheme(isDark ? 'light' : 'dark')}
       aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-      className="p-0.5 text-muted transition-colors duration-150 hover:text-accent"
+      className="p-0.5 text-muted transition-colors duration-150 hover:text-accent active:text-accent"
     >
       {isDark ? <Sun className="size-4" /> : <Moon className="size-4" />}
     </button>

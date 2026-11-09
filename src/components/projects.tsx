@@ -24,7 +24,7 @@ export function Projects() {
           <button
             type="button"
             onClick={() => setShowAll((value) => !value)}
-            className="inline-flex items-center gap-2 rounded-md bg-card px-3 py-1.5 text-xs text-muted transition-colors duration-150 hover:text-foreground"
+            className="inline-flex items-center gap-2 rounded-md bg-card px-3 py-1.5 text-xs text-muted transition-colors duration-150 hover:text-foreground active:text-accent"
           >
             <span>{showAll ? 'Show less' : 'Show more'}</span>
             <ChevronDown
