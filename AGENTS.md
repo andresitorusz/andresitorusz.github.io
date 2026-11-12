@@ -29,8 +29,34 @@ Personal website at [andresitorusz.github.io](https://andresitorusz.github.io), 
 
 ## Design System
 
-- **Tokens** (in `src/styles/globals.css`): `--background`, `--card`, `--foreground`, `--muted`, `--subtle`, `--border`, `--accent`, defined on `:root` (light: white/black/hot-pink `#ec4899`) and `.dark` (black/white/`#f472b6`), set by next-themes (attribute `class`). Consume them via Tailwind utilities (`bg-background`, `text-muted`, `text-accent`, …) wired through `@theme inline`. Never hardcode colors.
-- **Palette rule**: black/white only, hot pink for anything that needs highlighting. No other accent colors.
+### Color Palette
+
+Tokens live in `src/styles/globals.css` on `:root` (light) and `.dark` (set by next-themes, attribute `class`), consumed via Tailwind utilities (`bg-background`, `text-muted`, `text-accent`, …) wired through `@theme inline`.
+
+| Token          | Light     | Dark      | Usage                                                        |
+| -------------- | --------- | --------- | ------------------------------------------------------------ |
+| `--background` | `#ffffff` | `#000000` | Page canvas                                                  |
+| `--card`       | `#f5f5f5` | `#141414` | Chips, tiles, icon buttons, skeletons, show-more pills       |
+| `--foreground` | `#000000` | `#ffffff` | Primary text, headings                                       |
+| `--muted`      | `#555555` | `#a8a8a8` | Secondary text, descriptions                                 |
+| `--subtle`     | `#8a8a8a` | `#6f6f6f` | Captions, dates, metadata                                    |
+| `--border`     | `#e4e4e4` | `#2b2b2b` | Borders, dividers, button outlines                           |
+| `--accent`     | `#ec4899` | `#f472b6` | Highlights: links, active states, current-role dot, accents  |
+
+GitHub heatmap levels (`--heat-0` … `--heat-4` in the same two blocks):
+
+| Light                     | Dark                      |
+| ------------------------- | ------------------------- |
+| `#f0f0f0 → #a11d5f` (0–4) | `#1e1e1e → #f472b6` (0–4) |
+
+Rules:
+
+- Black/white canvas only; pink is reserved for highlighting. No other accent colors. Dark background stays pure `#000000`.
+- **Never hardcode colors** outside `globals.css` — no hex, `rgb()`, or `color-mix` with literal colors in components or `site.module.css`. Derive tints from tokens (e.g. `color-mix(in oklab, var(--border) 8%, transparent)`).
+- Baked generated assets (`og.png`, the pfp frame) may carry the accent hex at generation time.
+
+### Spacing & Layout
+
 - **Spacing rhythm**: 4px (`mt-1` / `space-y-1`) between consecutive content lines inside a section; 16px (`py-4`) padding inside panels; 32px between sections. Keep it identical across all sections.
 - **Layout**: centered `max-w-3xl` column with `px-4 sm:px-6` gutter everywhere (header, footer, all sections).
 - **Sections** (`src/components/section.tsx`): `Panel` for the home sections (text-xl title, anchor id), `Section` for page-level wrappers (optional small-caps accent title).
