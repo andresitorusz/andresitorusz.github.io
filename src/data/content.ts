@@ -1,4 +1,3 @@
 export const CONTENT = {
-  bio: 'A Data Engineer with a strong focus on building scalable, efficient data pipelines and optimizing costs. Proven track record in delivering end-to-end data solutions that enhance performance, streamline workflows and drive impactful results.',
-  timeZoneLabel: 'WIB'
+  bio: 'Results-driven Data Engineer experienced in building scalable, cost-efficient data pipelines. Proven track record of delivering end-to-end solutions that streamline workflows and optimize performance within high-volume tech ecosystems.'
 };
