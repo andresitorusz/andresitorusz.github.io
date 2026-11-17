@@ -44,6 +44,9 @@ export type ExperienceItemData = {
   id: string;
   companyName: string;
   companyLogo?: string;
+  /** Optional company headquarters/location and work arrangement. */
+  companyLocation?: string;
+  companyLocationType?: 'Remote' | 'Hybrid' | 'On-site';
   /** Theme-aware logo variant rendered via ThemedLogo. */
   themedLogo?: 'sirclo' | 'del';
   /** 'rounded-square' for logos with a background; 'full' shows the whole logo at its natural width. */
@@ -52,7 +55,12 @@ export type ExperienceItemData = {
   positions: {
     id: string;
     title: string;
+    /** Optional employment type, e.g. 'Full-time'; shown in the multi-position header. */
+    employmentType?: string;
     employmentPeriod: { start: string; end?: string };
+    /** Optional work arrangement and place, rendered below the employment period. */
+    locationType?: 'Remote' | 'Hybrid' | 'On-site';
+    location?: string;
     /** Role context (team, focus) shown before the description points. */
     context?: string;
     skills?: string[];
@@ -65,6 +73,8 @@ export const EXPERIENCES: ExperienceItemData[] = [
     id: 'ajaib',
     companyName: 'Ajaib',
     companyLogo: '/assets/logos/ajaib.webp',
+    companyLocation: 'Jakarta, Indonesia',
+    companyLocationType: 'Remote',
     logoShape: 'rounded-square',
     isCurrentEmployer: true,
     positions: [
@@ -72,6 +82,7 @@ export const EXPERIENCES: ExperienceItemData[] = [
         id: 'ajaib-senior-data-engineer',
         title: 'Senior Data Engineer',
         employmentPeriod: { start: 'Jul 2026' },
+        employmentType: 'Full-time',
         context: 'Making Magic Happen.',
         skills: [
           'Apache Airflow', 'Apache Flink', 'Apache Kafka', 'Apache Spark', 'Argo CD', 'Atlassian Confluence',
@@ -87,12 +98,15 @@ export const EXPERIENCES: ExperienceItemData[] = [
     id: 'goto-group',
     companyName: 'GoTo Group',
     companyLogo: '/assets/logos/goto.webp',
+    companyLocation: 'Jakarta, Indonesia',
+    companyLocationType: 'Hybrid',
     logoShape: 'full',
     positions: [
       {
         id: 'goto-group-data-engineer',
         title: 'Data Engineer',
         employmentPeriod: { start: 'Oct 2024', end: 'Jun 2026' },
+        employmentType: 'Full-time',
         context:
           "I was part of a small, dedicated data squad handling market-pricing-related work at GoTo Group (specifically Gojek), Indonesia's premier on-demand platform.",
         skills: [
@@ -111,12 +125,15 @@ export const EXPERIENCES: ExperienceItemData[] = [
   {
     id: 'sirclo',
     companyName: 'SIRCLO',
+    companyLocation: 'Jakarta, Indonesia',
+    companyLocationType: 'Remote',
     themedLogo: 'sirclo',
     positions: [
       {
         id: 'sirclo-data-engineer',
         title: 'Data Engineer',
         employmentPeriod: { start: 'Jun 2023', end: 'Sep 2024' },
+        employmentType: 'Full-time',
         context: 'At SIRCLO, Indonesia\'s leading omnichannel commerce enabler, I helped manage the internal data platform.',
         skills: [
           'Apache Airflow', 'Apache Spark', 'DataHub', 'dbt', 'Docker', 'Google Artifact Registry',
@@ -137,12 +154,15 @@ export const EXPERIENCES: ExperienceItemData[] = [
     id: 'tokopedia',
     companyName: 'Tokopedia',
     companyLogo: '/assets/logos/tokopedia.webp',
+    companyLocation: 'Jakarta, Indonesia',
+    companyLocationType: 'Remote',
     logoShape: 'full',
     positions: [
       {
         id: 'tokopedia-data-engineer',
         title: 'Data Engineer',
         employmentPeriod: { start: 'Mar 2022', end: 'May 2023' },
+        employmentType: 'Full-time',
         context: 'At Tokopedia, an Indonesian tech company focused on democratizing commerce, I was part of the Data Ingestion squad responsible for their data platform.',
         skills: [
           'Apache Airflow', 'Apache Beam', 'Atlassian Confluence', 'Atlassian Jira', 'Debezium',
@@ -164,12 +184,15 @@ export const EXPERIENCES: ExperienceItemData[] = [
     id: 'blibli',
     companyName: 'Blibli',
     companyLogo: '/assets/logos/blibli.webp',
+    companyLocation: 'Jakarta, Indonesia',
+    companyLocationType: 'Remote',
     logoShape: 'full',
     positions: [
       {
         id: 'blibli-associate-data-engineer',
         title: 'Associate Data Engineer',
         employmentPeriod: { start: 'Feb 2021', end: 'Feb 2022' },
+        employmentType: 'Full-time',
         context: 'Working across Blibli, an omnichannel commerce ecosystem, and its automotive sister company, Garasi.id, was my direct pathway to becoming a Data Engineer.',
         skills: [
           'Apache Airflow', 'Atlassian Bitbucket', 'Atlassian Confluence', 'Atlassian Jira', 'Google Artifact Registry',
