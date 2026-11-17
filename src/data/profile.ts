@@ -53,6 +53,8 @@ export type ExperienceItemData = {
     id: string;
     title: string;
     employmentPeriod: { start: string; end?: string };
+    /** Role context (team, focus) shown before the description points. */
+    context?: string;
     skills?: string[];
     highlights?: string[];
   }[];
@@ -70,15 +72,14 @@ export const EXPERIENCES: ExperienceItemData[] = [
         id: 'ajaib-senior-data-engineer',
         title: 'Senior Data Engineer',
         employmentPeriod: { start: 'Jul 2026' },
+        context: 'Making Magic Happen.',
         skills: [
           'Apache Airflow', 'Apache Flink', 'Apache Kafka', 'Apache Spark', 'Argo CD', 'Atlassian Confluence',
           'Atlassian Jira', 'dbt', 'Debezium', 'GitHub', 'Docker', 'Go','Google Artifact Registry',
           'Google BigQuery', 'Google Cloud Storage', 'Google Kubernetes Engine', 'Google Secret Manager',
           'Java', 'Metabase', 'Python', 'SQL', 'Terraform'
         ],
-        highlights: [
-          'Making Magic Happen.'
-        ]
+        highlights: []
       }
     ]
   },
@@ -92,15 +93,17 @@ export const EXPERIENCES: ExperienceItemData[] = [
         id: 'goto-group-data-engineer',
         title: 'Data Engineer',
         employmentPeriod: { start: 'Oct 2024', end: 'Jun 2026' },
+        context:
+          "I was part of a small, dedicated data squad handling market-pricing-related work at GoTo Group (specifically Gojek), Indonesia's premier on-demand platform.",
         skills: [
-          'Alibaba MaxCompute', 'Alibaba DataWorks', 'Alibaba OSS', 'Apache Airflow', 'Docker', 'GitLab',
+          'Alibaba DataWorks', 'Alibaba MaxCompute', 'Alibaba OSS', 'Apache Airflow', 'Docker', 'GitLab',
           'Google BigQuery', 'Google Cloud Storage', 'Python', 'SQL'
         ],
         highlights: [
           'Integrated third-party data sources, streamlined ingestion of external data into the internal data warehouse, and staged data as requested by analysts.',
           'Enforced data governance policies by refactoring legacy tables to ensure structural integrity and strict internal compliance.',
           'Standardized data workflows by developing scalable pipeline templates, driving engineering efficiency and ensuring consistent maintainability across all data products.',
-          'Executed the end-to-end migration of the team\'s data resources from Google Cloud Platform to Alibaba Cloud.'
+          'Executed the end-to-end migration of the team\'s data resources from Google Cloud Platform to Alibaba Cloud.',
         ]
       }
     ]
@@ -114,6 +117,7 @@ export const EXPERIENCES: ExperienceItemData[] = [
         id: 'sirclo-data-engineer',
         title: 'Data Engineer',
         employmentPeriod: { start: 'Jun 2023', end: 'Sep 2024' },
+        context: 'At SIRCLO, Indonesia\'s leading omnichannel commerce enabler, I helped manage the internal data platform.',
         skills: [
           'Apache Airflow', 'Apache Spark', 'DataHub', 'dbt', 'Docker', 'Google Artifact Registry',
           'Google BigQuery', 'Google Cloud Run', 'Google Cloud Storage', 'Google Kubernetes Engine',
@@ -124,7 +128,7 @@ export const EXPERIENCES: ExperienceItemData[] = [
           'Enhanced data accessibility by developing an in-house Streamlit application on GKE, enabling users to interact with Google BigQuery seamlessly.',
           'Centralized metadata management by deploying DataHub on GKE, unifying end-to-end data lineage across Apache Airflow, Google BigQuery, dbt, Apache Superset, and transactional databases.',
           'Boosted pipeline performance and reliability by spearheading a major Apache Airflow upgrade (2.0.2 to 2.5.0), proactively resolving breaking changes and migrating all production pipelines.',
-          'Modernized external data ingestion by containerizing legacy API crawling and web scraping codebases, and standardizing their orchestration through Apache Airflow.'
+          'Modernized external data ingestion by containerizing legacy API crawling and web scraping codebases and standardizing their orchestration through Apache Airflow.'
         ]
       }
     ]
@@ -139,6 +143,7 @@ export const EXPERIENCES: ExperienceItemData[] = [
         id: 'tokopedia-data-engineer',
         title: 'Data Engineer',
         employmentPeriod: { start: 'Mar 2022', end: 'May 2023' },
+        context: 'At Tokopedia, an Indonesian tech company focused on democratizing commerce, I was part of the Data Ingestion squad responsible for their data platform.',
         skills: [
           'Apache Airflow', 'Apache Beam', 'Atlassian Confluence', 'Atlassian Jira', 'Debezium',
           'Docker', 'GitHub', 'Go', 'Google Artifact Registry', 'Google BigQuery', 'Google Cloud Storage',
@@ -147,7 +152,7 @@ export const EXPERIENCES: ExperienceItemData[] = [
         ],
         highlights: [
           'Developed a custom framework for automated, dynamic batch pipeline generation using Apache Airflow and Apache Beam on Google Dataflow.',
-          'Developed a low-latency, near real-time data replication pipeline from operational databases to data warehouse by utilizing Apache Beam, Google Dataflow, Debezium, GKE, and Google Pub/Sub.',
+          'Developed a low-latency, near-real-time data replication pipeline from operational databases to a data warehouse by utilizing Apache Beam, Google Dataflow, Debezium, GKE, and Google Pub/Sub.',
           'Enabled real-time product event analytics by developing a Go-based SDK for Pub/Sub ingestion and a high-throughput Java consumer pipeline to process client and server-side events.',
           'Strengthened infrastructure security by implementing Workload Identity, ensuring seamless and secure authentication between GKE and Google Cloud service accounts for custom containerized tasks.',
           'Democratized data workflows by developing Go-based self-serve platforms for batch and real-time pipeline creation, featuring both a Jira-integrated interface and a REST API.'
@@ -165,12 +170,13 @@ export const EXPERIENCES: ExperienceItemData[] = [
         id: 'blibli-associate-data-engineer',
         title: 'Associate Data Engineer',
         employmentPeriod: { start: 'Feb 2021', end: 'Feb 2022' },
+        context: 'Working across Blibli, an omnichannel commerce ecosystem, and its automotive sister company, Garasi.id, was my direct pathway to becoming a Data Engineer.',
         skills: [
           'Apache Airflow', 'Atlassian Bitbucket', 'Atlassian Confluence', 'Atlassian Jira', 'Google Artifact Registry',
           'Google BigQuery', 'Google Cloud Storage', 'Google Dataflow', 'Python', 'SQL'
         ],
         highlights: [
-          'Built Garasi.id\'s end-to-end data pipeline from scratch as the sole founding Data Engineer, then I got transferred to Blibli after seven months.',
+          'Built Garasi.id\'s end-to-end data pipeline from scratch as the sole founding Data Engineer; then I got transferred to Blibli after seven months.',
           'Reduced data processing costs by ~90% on high-frequency pipelines by implementing a raw-to-standard data transformation operator.'
         ]
       }

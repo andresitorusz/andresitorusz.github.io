@@ -98,6 +98,9 @@ function ExperienceRow({ experience }: { experience: ExperienceItemData }) {
           <span className="tabular-nums text-subtle">·</span>
           <dd className="tabular-nums">{formatDuration(start, end)}</dd>
         </dl>
+        {position.context && (
+          <p className="mt-1 text-xs leading-relaxed text-muted">{position.context}</p>
+        )}
         {position.highlights && (
           <div className={cn(styles.collapsible, open && styles.collapsibleOpen)}>
             <div>
