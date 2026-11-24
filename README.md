@@ -33,21 +33,21 @@ npm run dev
 ## Project Structure
 
 ```
-├── public/            # Static assets served as-is
-│   ├── assets/logos/  #   Brand logos (webp, theme-aware pairs for github/x/sirclo/del)
-│   ├── pfp.webp       #   Profile photo
-│   ├── og.png         #   Open Graph link-preview image
-│   └── favicon.png    #   Tab icon
+├── public/                # Static assets served as-is
+│   ├── assets/logos/      #   128px WebP logos grouped by section (certifications, education,
+│   │                      #   experiences, socials, stacks, volunteering)
+│   ├── og.png             #   Open Graph link-preview image
+│   └── favicon.png        #   Tab icon
 ├── src/
-│   ├── components/    # Page sections: hero, experience, certifications, education,
-│   │                  #   projects, volunteering, cta, github contributions, layout
-│   ├── data/          # All site content — edit this to change copy or lists
-│   │   ├── profile.ts #   Name, avatar, socials, experiences, licenses, projects, volunteering
-│   │   └── content.ts #   Bio, timezone label
-│   ├── lib/           # Small shared helpers (cn, github-contributions fetch)
-│   ├── pages/         # Routes: index, 404 (plus _app, _document)
-│   └── styles/        # globals.css (design tokens, light/dark palette), module CSS, fonts
-├── next.config.ts     # Static export config for GitHub Pages
+│   ├── components/        # Page sections: hero, contributions, stacks, experience,
+│   │                      #   certifications, education, projects, volunteering, cta, layout
+│   ├── data/              # All site content — edit this to change copy or lists
+│   │   ├── profile.ts     #   Profile, stacks, experiences, licenses, education, projects, volunteering
+│   │   └── content.ts     #   Bio copy
+│   ├── lib/               # Small shared helpers (cn, github-contributions fetch)
+│   ├── pages/             # Routes: index (plus _app, _document)
+│   └── styles/            # globals.css (design tokens, light/dark palette), module CSS, fonts
+├── next.config.ts         # Static export config for GitHub Pages
 └── .github/workflows/deploy.yml
 ```
 
