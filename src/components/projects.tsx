@@ -89,7 +89,7 @@ function ProjectRow({ project }: { project: ProjectItemData }) {
           <h3 className="text-sm font-medium text-balance">{project.title}</h3>
           {project.date && <p className="text-xs text-subtle">{project.date}</p>}
           {project.description && (
-            <p className="mt-1 text-xs leading-relaxed text-muted">{project.description}</p>
+            <p className="mt-1 text-xs leading-phi text-muted">{project.description}</p>
           )}
           {project.stacks.length > 0 && (
             <ul className="mt-1 flex flex-wrap gap-1.5">

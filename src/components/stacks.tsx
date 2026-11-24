@@ -73,7 +73,7 @@ function StackGroupRow({ group, isFirst }: { group: StackGroupData; isFirst: boo
   return (
     <div
       className={cn(
-        'grid grid-cols-1 gap-2 py-3 sm:grid-cols-[15.5rem_1fr] sm:gap-0',
+        'grid grid-cols-1 gap-2 py-3 sm:grid-cols-[1fr_1.618fr] sm:gap-0',
         isFirst ? 'pt-0' : 'border-t border-border'
       )}
     >

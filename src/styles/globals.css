@@ -16,6 +16,7 @@
   --color-subtle: var(--subtle);
   --color-border: var(--border);
   --color-accent: var(--accent);
+  --leading-phi: 1.618;
 }
 
 :root {

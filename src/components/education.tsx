@@ -34,7 +34,7 @@ export function Education() {
                 </p>
               )}
               {item.description && (
-                <p className="mt-1 text-xs leading-relaxed text-muted">{item.description}</p>
+                <p className="mt-1 text-xs leading-phi text-muted">{item.description}</p>
               )}
             </div>
           </div>

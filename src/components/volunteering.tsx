@@ -118,7 +118,7 @@ function VolunteeringRow({ item }: { item: VolunteeringItemData }) {
       {item.description && (
         <div className={cn(styles.collapsible, open && styles.collapsibleOpen)}>
           <div>
-            <p className="mt-1 whitespace-pre-line pl-11 pr-4 text-xs leading-relaxed text-muted">
+            <p className="mt-1 whitespace-pre-line pl-11 pr-4 text-xs leading-phi text-muted">
               {item.description}
             </p>
           </div>

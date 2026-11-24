@@ -20,13 +20,13 @@ export function Hero() {
   const { bio } = CONTENT;
 
   return (
-    <section className="relative w-full pb-4 pt-24 md:pt-32">
+    <section className="relative w-full pb-4 pt-[4.25rem] md:pt-[6.875rem]">
       <div className="mx-auto w-full max-w-3xl px-4 sm:px-6">
         <div className={styles.fadeIn}>
-          <h1 className="text-[2rem] font-medium leading-none tracking-tight">
+          <h1 className="text-[1.964rem] font-medium leading-none tracking-tight">
             {PROFILE.displayName}
           </h1>
-          <p className="mt-3 text-sm leading-relaxed text-muted">
+          <p className="mt-2.5 text-sm leading-phi text-muted">
             {bio.split(HIGHLIGHT).map((part, index, parts) => (
               <span key={index}>
                 {part}
@@ -38,7 +38,7 @@ export function Hero() {
           </p>
         </div>
 
-        <ul className="mt-5 flex flex-wrap gap-2">
+        <ul className="mt-4 flex flex-wrap gap-2">
           {PROFILE.socials
             .filter((social) => social.href)
             .map((social) => {

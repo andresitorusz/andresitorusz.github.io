@@ -41,7 +41,7 @@ export function Panel({ id, title, meta, srOnly, children }: PanelProps) {
       <div className="px-4 sm:px-6">
         <h2
           className={cn(
-            'text-xl font-medium tracking-tight',
+            'text-[1.214rem] font-medium tracking-tight',
             srOnly ? 'sr-only' : 'py-1'
           )}
         >

@@ -135,14 +135,14 @@ function SinglePositionExperience({ experience }: { experience: ExperienceItemDa
         </h3>
         <PositionMeta position={position} experience={experience} />
         {position.context && (
-          <p className="mt-1 text-xs leading-relaxed text-muted">{position.context}</p>
+          <p className="mt-1 text-xs leading-phi text-muted">{position.context}</p>
         )}
         {position.highlights && position.highlights.length > 0 && (
           <div className={cn(styles.collapsible, open && styles.collapsibleOpen)}>
             <div>
               <ul className="mt-1 space-y-1">
                 {position.highlights.map((highlight) => (
-                  <li key={highlight} className="flex gap-2 text-xs leading-relaxed text-muted">
+                  <li key={highlight} className="flex gap-2 text-xs leading-phi text-muted">
                     <span className="shrink-0 text-accent">▸</span>
                     {highlight}
                   </li>
@@ -248,14 +248,14 @@ function MultiPositionBlock({
         <h4 className="text-sm font-medium">{position.title}</h4>
         <PositionMeta position={position} experience={experience} />
         {position.context && (
-          <p className="mt-1 text-xs leading-relaxed text-muted">{position.context}</p>
+          <p className="mt-1 text-xs leading-phi text-muted">{position.context}</p>
         )}
         {position.highlights && position.highlights.length > 0 && (
           <div className={cn(styles.collapsible, open && styles.collapsibleOpen)}>
             <div>
               <ul className="mt-1 space-y-1">
                 {position.highlights.map((highlight) => (
-                  <li key={highlight} className="flex gap-2 text-xs leading-relaxed text-muted">
+                  <li key={highlight} className="flex gap-2 text-xs leading-phi text-muted">
                     <span className="shrink-0 text-accent">▸</span>
                     {highlight}
                   </li>
