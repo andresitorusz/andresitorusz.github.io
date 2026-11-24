@@ -3,6 +3,7 @@ import Meta from 'components/meta';
 import { Hero } from 'components/hero';
 import { CONTENT } from 'data/content';
 import { Contributions } from 'components/contributions';
+import { Stacks } from 'components/stacks';
 import { Experience } from 'components/experience';
 import { Education } from 'components/education';
 import { Certifications } from 'components/certifications';
@@ -23,6 +24,7 @@ export default function Home() {
       <Meta title="Ye - Senior Data Engineer" description={CONTENT.bio} />
       <Hero />
       <Contributions contributions={contributions ?? []} loading={contributions === null} />
+      <Stacks />
       <Experience />
       <Certifications />
       <Education />

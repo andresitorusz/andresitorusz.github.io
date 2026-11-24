@@ -39,6 +39,114 @@ export const PROFILE = {
   socials
 };
 
+export type StackItemData = {
+  name: string;
+  logo?: string;
+  themedLogo?: 'github' | 'apache-kafka' | 'helm';
+};
+
+export type StackGroupData = {
+  id: string;
+  category: string;
+  items: StackItemData[];
+};
+
+export const STACKS: StackGroupData[] = [
+  {
+    id: 'collaboration',
+    category: 'Collaboration',
+    items: [
+      { name: 'Atlassian Bitbucket', logo: '/assets/logos/stacks/atlassian-bitbucket.webp' },
+      { name: 'Atlassian Confluence', logo: '/assets/logos/stacks/atlassian-confluence.webp' },
+      { name: 'Atlassian Jira', logo: '/assets/logos/stacks/atlassian-jira.webp' },
+      { name: 'GitHub', themedLogo: 'github' },
+      { name: 'GitLab', logo: '/assets/logos/stacks/gitlab.webp' },
+      { name: 'Phabricator', logo: '/assets/logos/stacks/phabricator.webp' }
+    ]
+  },
+  {
+    id: 'data-governance-storage',
+    category: 'Data (Governance / Storage)',
+    items: [
+      { name: 'Alibaba MaxCompute', logo: '/assets/logos/stacks/alibaba-maxcompute.webp' },
+      { name: 'Alibaba OSS', logo: '/assets/logos/stacks/alibaba-oss.webp' },
+      { name: 'Amazon Athena', logo: '/assets/logos/stacks/amazon-athena.webp' },
+      { name: 'Amazon S3', logo: '/assets/logos/stacks/amazon-s3.webp' },
+      { name: 'DataHub', logo: '/assets/logos/stacks/datahub.webp' },
+      { name: 'Google BigQuery', logo: '/assets/logos/stacks/google-bigquery.webp' },
+      { name: 'Google Cloud Storage', logo: '/assets/logos/stacks/google-cloud-storage.webp' }
+    ]
+  },
+  {
+    id: 'data-orchestration',
+    category: 'Data Orchestration',
+    items: [
+      { name: 'Apache Airflow', logo: '/assets/logos/stacks/apache-airflow.webp' }
+    ]
+  },
+  {
+    id: 'data-processing-streaming',
+    category: 'Data (Processing / Streaming)',
+    items: [
+      { name: 'Apache Beam', logo: '/assets/logos/stacks/apache-beam.webp' },
+      { name: 'Apache Flink', logo: '/assets/logos/stacks/apache-flink.webp' },
+      { name: 'Apache Kafka', themedLogo: 'apache-kafka' },
+      { name: 'Apache Spark', logo: '/assets/logos/stacks/apache-spark.webp' },
+      { name: 'AWS Glue', logo: '/assets/logos/stacks/aws-glue.webp' },
+      { name: 'dbt', logo: '/assets/logos/stacks/dbt.webp' },
+      { name: 'Debezium', logo: '/assets/logos/stacks/debezium.webp' },
+      { name: 'Google Dataflow', logo: '/assets/logos/stacks/google-dataflow.webp' },
+      { name: 'Google Pub/Sub', logo: '/assets/logos/stacks/google-pubsub.webp' }
+    ]
+  },
+  {
+    id: 'devops',
+    category: 'Devops',
+    items: [
+      { name: 'Argo CD', logo: '/assets/logos/stacks/argo-cd.webp' },
+      { name: 'AWS Lambda', logo: '/assets/logos/stacks/aws-lambda.webp' },
+      { name: 'Docker', logo: '/assets/logos/stacks/docker.webp' },
+      { name: 'Google Artifact Registry', logo: '/assets/logos/stacks/google-artifact-registry.webp' },
+      { name: 'Google Cloud Run', logo: '/assets/logos/stacks/google-cloud-run.webp' },
+      { name: 'Google Kubernetes Engine', logo: '/assets/logos/stacks/google-kubernetes-engine.webp' },
+      { name: 'Google Secret Manager', logo: '/assets/logos/stacks/google-secret-manager.webp' },
+      { name: 'Helm', themedLogo: 'helm' },
+      { name: 'Jenkins', logo: '/assets/logos/stacks/jenkins.webp' },
+      { name: 'Kubernetes', logo: '/assets/logos/stacks/kubernetes.webp' },
+      { name: 'Terraform', logo: '/assets/logos/stacks/terraform.webp' }
+    ]
+  },
+  {
+    id: 'productivity',
+    category: 'Productivity',
+    items: [
+      { name: 'Claude', logo: '/assets/logos/stacks/claude.webp' },
+      { name: 'Google Antigravity', logo: '/assets/logos/stacks/google-antigravity.webp' },
+      { name: 'Visual Studio Code', logo: '/assets/logos/stacks/visual-studio-code.webp' }
+    ]
+  },
+  {
+    id: 'programming-languages',
+    category: 'Programming Languages',
+    items: [
+      { name: 'Go', logo: '/assets/logos/stacks/go.webp' },
+      { name: 'Java', logo: '/assets/logos/stacks/java.webp' },
+      { name: 'Python', logo: '/assets/logos/stacks/python.webp' },
+      { name: 'Scala', logo: '/assets/logos/stacks/scala.webp' },
+      { name: 'SQL', logo: '/assets/logos/stacks/sql.webp' }
+    ]
+  },
+  {
+    id: 'visualization',
+    category: 'Visualization',
+    items: [
+      { name: 'Apache Superset', logo: '/assets/logos/stacks/apache-superset.webp' },
+      { name: 'Metabase', logo: '/assets/logos/stacks/metabase.webp' },
+      { name: 'Streamlit', logo: '/assets/logos/stacks/streamlit.webp' }
+    ]
+  }
+];
+
 export type ExperienceItemData = {
   id: string;
   companyName: string;
@@ -109,7 +217,7 @@ export const EXPERIENCES: ExperienceItemData[] = [
         context:
           "I was part of a small, dedicated data squad handling market-pricing-related work at GoTo Group (specifically Gojek), Indonesia's premier on-demand platform.",
         skills: [
-          'Alibaba DataWorks', 'Alibaba MaxCompute', 'Alibaba OSS', 'Apache Airflow', 'Docker', 'GitLab',
+          'Alibaba MaxCompute', 'Alibaba OSS', 'Apache Airflow', 'Docker', 'GitLab',
           'Google BigQuery', 'Google Cloud Storage', 'Python', 'SQL'
         ],
         highlights: [
@@ -135,7 +243,7 @@ export const EXPERIENCES: ExperienceItemData[] = [
         employmentType: 'Full-time',
         context: 'At SIRCLO, Indonesia\'s leading omnichannel commerce enabler, I helped manage the internal data platform.',
         skills: [
-          'Apache Airflow', 'Apache Spark', 'DataHub', 'dbt', 'Docker', 'Google Artifact Registry',
+          'Apache Airflow', 'Apache Spark', 'Apache Superset', 'DataHub', 'dbt', 'Docker', 'Google Artifact Registry',
           'Google BigQuery', 'Google Cloud Run', 'Google Cloud Storage', 'Google Kubernetes Engine',
           'Jenkins', 'Phabricator', 'Python', 'Scala', 'Streamlit', 'SQL'
         ],

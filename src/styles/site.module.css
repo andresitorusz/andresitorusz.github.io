@@ -8,6 +8,8 @@
   --logo-x: url('/assets/logos/x-dark.webp');
   --logo-sirclo: url('/assets/logos/sirclo-dark.webp');
   --logo-del: url('/assets/logos/del-dark.webp');
+  --logo-apache-kafka: url('/assets/logos/stacks/apache-kafka-dark.webp');
+  --logo-helm: url('/assets/logos/stacks/helm-dark.webp');
 }
 
 :global(.dark) {
@@ -15,6 +17,8 @@
   --logo-x: url('/assets/logos/x-light.webp');
   --logo-sirclo: url('/assets/logos/sirclo-light.webp');
   --logo-del: url('/assets/logos/del-light.webp');
+  --logo-apache-kafka: url('/assets/logos/stacks/apache-kafka-light.webp');
+  --logo-helm: url('/assets/logos/stacks/helm-light.webp');
 }
 
 @keyframes fade-in {
