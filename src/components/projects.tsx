@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Box, ChevronDown, Link as LinkIcon } from 'lucide-react';
 import { PROJECTS, ProjectItemData } from 'data/profile';
 import { cn } from 'lib/cn';
@@ -9,8 +9,22 @@ const VISIBLE_COUNT = 3;
 
 export function Projects() {
   const [showAll, setShowAll] = useState(false);
+  const [pressing, setPressing] = useState(false);
+  const pressTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const visible = showAll ? PROJECTS : PROJECTS.slice(0, VISIBLE_COUNT);
   const hiddenCount = PROJECTS.length - VISIBLE_COUNT;
+
+  useEffect(() => {
+    return () => {
+      if (pressTimer.current) clearTimeout(pressTimer.current);
+    };
+  }, []);
+
+  const flashPress = () => {
+    if (pressTimer.current) clearTimeout(pressTimer.current);
+    setPressing(true);
+    pressTimer.current = setTimeout(() => setPressing(false), 200);
+  };
 
   return (
     <Panel id="projects" title="Projects">
@@ -23,8 +37,15 @@ export function Projects() {
         <div className="flex items-center justify-center py-4">
           <button
             type="button"
-            onClick={() => setShowAll((value) => !value)}
-            className="inline-flex items-center gap-2 rounded-md bg-card px-3 py-1.5 text-xs text-muted transition-colors duration-150 hover:text-foreground active:text-accent"
+            onTouchStart={flashPress}
+            onClick={() => {
+              flashPress();
+              setShowAll((value) => !value);
+            }}
+            className={cn(
+              'inline-flex items-center gap-2 rounded-md bg-card px-3 py-1.5 text-xs transition-colors duration-150 hover:text-foreground active:text-accent',
+              pressing ? 'text-accent' : 'text-muted'
+            )}
           >
             <span>{showAll ? 'Show less' : 'Show more'}</span>
             <ChevronDown

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { differenceInMonths, parse } from 'date-fns';
 import { EXPERIENCES, ExperienceItemData } from 'data/profile';
@@ -11,9 +11,24 @@ const VISIBLE_COUNT = 3;
 
 export function Experience() {
   const [showAll, setShowAll] = useState(false);
+  const [pressing, setPressing] = useState(false);
+  const pressTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const always = EXPERIENCES.slice(0, VISIBLE_COUNT);
   const hidden = EXPERIENCES.slice(VISIBLE_COUNT);
   const hiddenCount = hidden.length;
+
+  useEffect(() => {
+    return () => {
+      if (pressTimer.current) clearTimeout(pressTimer.current);
+    };
+  }, []);
+
+  // Keep accent color visible across tap + collapse transition on touch screens.
+  const flashPress = () => {
+    if (pressTimer.current) clearTimeout(pressTimer.current);
+    setPressing(true);
+    pressTimer.current = setTimeout(() => setPressing(false), 200);
+  };
 
   return (
     <Panel id="experience" title="Work Experience">
@@ -34,8 +49,15 @@ export function Experience() {
         <div className="pb-4">
           <button
             type="button"
-            onClick={() => setShowAll((value) => !value)}
-            className="mx-auto flex items-center gap-1.5 text-xs text-muted transition-colors duration-150 hover:text-accent active:text-accent"
+            onTouchStart={flashPress}
+            onClick={() => {
+              flashPress();
+              setShowAll((value) => !value);
+            }}
+            className={cn(
+              'mx-auto flex items-center gap-1.5 text-xs transition-colors duration-150 hover:text-accent active:text-accent',
+              pressing ? 'text-accent' : 'text-muted'
+            )}
           >
             <ChevronDown
               className={cn('size-3.5 transition-transform duration-200', showAll && 'rotate-180')}
