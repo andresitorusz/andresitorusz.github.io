@@ -84,33 +84,44 @@ function PositionMeta({
   experience
 }: {
   position: ExperienceItemData['positions'][number];
-  /** When given (multi-position), the company location leads the meta line. */
   experience?: ExperienceItemData;
 }) {
+  const { start, end } = position.employmentPeriod;
   const companyPart = experience?.companyLocation
     ? `${experience.companyLocation}${experience.companyLocationType ? ` (${experience.companyLocationType})` : ''}`
     : undefined;
-  const parts = [companyPart, position.employmentType, position.locationType, position.location].filter(
-    Boolean
-  );
-  if (!parts.length) return null;
+  const leadingParts = [companyPart, position.location, position.locationType].filter(Boolean);
+  const trailingParts = [position.employmentType].filter(Boolean);
+
   return (
-    /* Same rhythm as the period·duration row: gap-2 with subtle separators. */
-    <p className="mt-1 flex flex-wrap items-center gap-2 text-xs text-muted">
-      {parts.map((part, index) => (
-        <span key={part} className="flex items-center gap-2">
+    <dl className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-0.5 text-xs text-muted">
+      {leadingParts.map((part, index) => (
+        <dd key={part} className="flex items-center gap-2">
           {index > 0 && <span className="tabular-nums text-subtle">·</span>}
-          {part}
-        </span>
+          <span>{part}</span>
+        </dd>
       ))}
-    </p>
+      {leadingParts.length > 0 && <span className="tabular-nums text-subtle">·</span>}
+      <dd className="flex items-center gap-0.5 tabular-nums">
+        {start && <span>{start}</span>}
+        <span>—</span>
+        {end ? <span>{end}</span> : <span>Present</span>}
+      </dd>
+      <span className="tabular-nums text-subtle">·</span>
+      <dd className="tabular-nums">{formatDuration(start, end)}</dd>
+      {trailingParts.map((part) => (
+        <dd key={part} className="flex items-center gap-2">
+          <span className="tabular-nums text-subtle">·</span>
+          <span>{part}</span>
+        </dd>
+      ))}
+    </dl>
   );
 }
 
 function SinglePositionExperience({ experience }: { experience: ExperienceItemData }) {
   const [open, setOpen] = useState(true);
   const position = experience.positions[0];
-  const { start, end } = position.employmentPeriod;
 
   return (
     <div className="group/experience flex items-start gap-3">
@@ -122,15 +133,6 @@ function SinglePositionExperience({ experience }: { experience: ExperienceItemDa
           </span>
           {experience.isCurrentEmployer && <CurrentDot />}
         </h3>
-        <dl className="mt-1 flex items-center gap-2 text-xs text-muted">
-          <dd className="flex items-center gap-0.5 tabular-nums">
-            {start && <span>{start}</span>}
-            <span>—</span>
-            {end ? <span>{end}</span> : <span>Present</span>}
-          </dd>
-          <span className="tabular-nums text-subtle">·</span>
-          <dd className="tabular-nums">{formatDuration(start, end)}</dd>
-        </dl>
         <PositionMeta position={position} experience={experience} />
         {position.context && (
           <p className="mt-1 text-xs leading-relaxed text-muted">{position.context}</p>
@@ -244,15 +246,6 @@ function MultiPositionBlock({
       </div>
       <div className="min-w-0 flex-1">
         <h4 className="text-sm font-medium">{position.title}</h4>
-        <dl className="mt-1 flex items-center gap-2 text-xs text-muted">
-          <dd className="flex items-center gap-0.5 tabular-nums">
-            {start && <span>{start}</span>}
-            <span>—</span>
-            {end ? <span>{end}</span> : <span>Present</span>}
-          </dd>
-          <span className="tabular-nums text-subtle">·</span>
-          <dd className="tabular-nums">{formatDuration(start, end)}</dd>
-        </dl>
         <PositionMeta position={position} experience={experience} />
         {position.context && (
           <p className="mt-1 text-xs leading-relaxed text-muted">{position.context}</p>

@@ -180,7 +180,7 @@ export const EXPERIENCES: ExperienceItemData[] = [
     id: 'ajaib',
     companyName: 'Ajaib',
     companyLogo: '/assets/logos/ajaib.webp',
-    companyLocation: 'Jakarta, Indonesia',
+    companyLocation: 'Indonesia',
     companyLocationType: 'Remote',
     logoShape: 'rounded-square',
     isCurrentEmployer: true,
@@ -205,7 +205,7 @@ export const EXPERIENCES: ExperienceItemData[] = [
     id: 'goto-group',
     companyName: 'GoTo Group',
     companyLogo: '/assets/logos/goto.webp',
-    companyLocation: 'Jakarta, Indonesia',
+    companyLocation: 'Indonesia',
     companyLocationType: 'Hybrid',
     logoShape: 'full',
     positions: [
@@ -232,7 +232,7 @@ export const EXPERIENCES: ExperienceItemData[] = [
   {
     id: 'sirclo',
     companyName: 'SIRCLO',
-    companyLocation: 'Jakarta, Indonesia',
+    companyLocation: 'Indonesia',
     companyLocationType: 'Remote',
     themedLogo: 'sirclo',
     positions: [
@@ -261,7 +261,7 @@ export const EXPERIENCES: ExperienceItemData[] = [
     id: 'tokopedia',
     companyName: 'Tokopedia',
     companyLogo: '/assets/logos/tokopedia.webp',
-    companyLocation: 'Jakarta, Indonesia',
+    companyLocation: 'Indonesia',
     companyLocationType: 'Remote',
     logoShape: 'full',
     positions: [
@@ -291,7 +291,7 @@ export const EXPERIENCES: ExperienceItemData[] = [
     id: 'blibli',
     companyName: 'Blibli',
     companyLogo: '/assets/logos/blibli.webp',
-    companyLocation: 'Jakarta, Indonesia',
+    companyLocation: 'Indonesia',
     companyLocationType: 'Remote',
     logoShape: 'full',
     positions: [
