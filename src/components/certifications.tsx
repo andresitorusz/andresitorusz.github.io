@@ -7,7 +7,7 @@ export function Certifications() {
     <Panel id="licenses" title="Certifications">
       <div className="space-y-4 py-4">
         {LICENSES.map((license) => (
-          <div key={license.id} className="group/license flex items-start gap-3">
+          <div key={license.id} className="flex items-start gap-3">
             {license.issuerLogo && (
               // eslint-disable-next-line @next/next/no-img-element
               <img
@@ -15,17 +15,17 @@ export function Certifications() {
                 alt={`${license.issuer} logo`}
                 width="24"
                 height="24"
-                className="mx-1 size-6 shrink-0 rounded-full object-contain"
+                className="mx-1 size-6 shrink-0 object-contain"
               />
             )}
             <div className="min-w-0 flex-1">
               <h3 className="text-sm font-medium">{license.title}</h3>
               <p className="text-xs text-muted">{license.issuer}</p>
               {(license.issued || license.expires) && (
-                <p className="mt-1 text-xs text-muted">
-                  {license.issued && `Issued ${license.issued}`}
-                  {license.issued && license.expires && ' · '}
-                  {license.expires && `Expires ${license.expires}`}
+                <p className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-0.5 text-xs tabular-nums text-muted">
+                  {license.issued && <span>Issued {license.issued}</span>}
+                  {license.issued && license.expires && <span className="text-subtle">·</span>}
+                  {license.expires && <span>Expires {license.expires}</span>}
                 </p>
               )}
               {license.credentialId && (

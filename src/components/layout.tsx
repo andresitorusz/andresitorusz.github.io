@@ -42,7 +42,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
 
       <main>{children}</main>
 
-      <footer className="mx-auto mt-auto w-full max-w-3xl px-6 pb-4 pt-3">
+      <footer className="mx-auto mt-auto w-full max-w-3xl px-4 pb-4 pt-3 sm:px-6">
         <div className="flex items-center justify-between text-xs text-subtle">
           <span>© 2026 Andre Yehuda Sitorus. All rights reserved.</span>
           <button

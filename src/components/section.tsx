@@ -1,41 +1,16 @@
-import { ReactNode } from 'react';
+import { ReactNode, useEffect, useRef, useState } from 'react';
+import { ChevronDown } from 'lucide-react';
 import { cn } from 'lib/cn';
-
-type Props = {
-  id?: string;
-  title?: string;
-  headingClassName?: string;
-  children: ReactNode;
-};
-
-export function Section({ id, title, headingClassName = 'mb-6', children }: Props) {
-  return (
-    <section id={id} className="mx-auto w-full max-w-3xl scroll-mt-20 px-4 py-4 sm:px-6">
-      {title && (
-        <h2
-          className={cn(
-            'text-xs font-semibold uppercase tracking-[0.25em] text-accent',
-            headingClassName
-          )}
-        >
-          {title}
-        </h2>
-      )}
-      {children}
-    </section>
-  );
-}
 
 type PanelProps = {
   id?: string;
   title?: string;
-  meta?: string;
-  /** Visually hidden heading, like the reference site's contributions panel. */
+  /** Visually hidden heading, e.g. the GitHub contributions panel. */
   srOnly?: boolean;
   children: ReactNode;
 };
 
-export function Panel({ id, title, meta, srOnly, children }: PanelProps) {
+export function Panel({ id, title, srOnly, children }: PanelProps) {
   return (
     <section id={id} className="mx-auto w-full max-w-3xl scroll-mt-20">
       <div className="px-4 sm:px-6">
@@ -48,10 +23,55 @@ export function Panel({ id, title, meta, srOnly, children }: PanelProps) {
           <a href={id ? `#${id}` : undefined} className="text-foreground no-underline">
             {title}
           </a>
-          {meta && <sup className="ml-1 text-sm font-medium text-muted">{meta}</sup>}
         </h2>
         {children}
       </div>
     </section>
+  );
+}
+
+export function ShowMoreButton({
+  expanded,
+  onToggle
+}: {
+  expanded: boolean;
+  onToggle: () => void;
+}) {
+  const [pressing, setPressing] = useState(false);
+  const pressTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (pressTimer.current) clearTimeout(pressTimer.current);
+    };
+  }, []);
+
+  // Keep accent color visible across tap + collapse transition on touch screens.
+  const flashPress = () => {
+    if (pressTimer.current) clearTimeout(pressTimer.current);
+    setPressing(true);
+    pressTimer.current = setTimeout(() => setPressing(false), 200);
+  };
+
+  return (
+    <div className="pb-4">
+      <button
+        type="button"
+        onTouchStart={flashPress}
+        onClick={() => {
+          flashPress();
+          onToggle();
+        }}
+        className={cn(
+          'mx-auto flex items-center gap-1.5 text-xs transition-colors duration-150 hover:text-accent active:text-accent',
+          pressing ? 'text-accent' : 'text-muted'
+        )}
+      >
+        <ChevronDown
+          className={cn('size-3.5 transition-transform duration-200', expanded && 'rotate-180')}
+        />
+        {expanded ? 'Show less' : 'Show more'}
+      </button>
+    </div>
   );
 }

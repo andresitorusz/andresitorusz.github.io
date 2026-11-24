@@ -5,8 +5,8 @@ import { ThemedLogo } from './themed-logo';
 
 // Plain brand images; GitHub and X use the theme-aware ThemedLogo instead.
 const SOCIAL_LOGOS: Record<string, string> = {
-  linkedin: '/assets/logos/linkedin.webp',
-  youtube: '/assets/logos/youtube.webp'
+  linkedin: '/assets/logos/socials/linkedin.webp',
+  youtube: '/assets/logos/socials/youtube.webp'
 };
 
 const THEMED_SOCIAL_LOGOS: Record<string, 'github' | 'x'> = {
@@ -57,7 +57,7 @@ export function Hero() {
                     rel="noopener noreferrer"
                     aria-label={social.title}
                     title={social.title}
-                    className="group inline-flex size-9 items-center justify-center rounded-full border border-border bg-card text-foreground/80 transition-colors duration-150 hover:text-foreground"
+                    className="inline-flex size-9 items-center justify-center rounded-full border border-border bg-card text-foreground/80 transition-colors duration-150 hover:text-foreground"
                   >
                     {content}
                   </a>

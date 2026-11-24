@@ -4,19 +4,19 @@
 
 /* Theme-aware brand marks: ThemedLogo consumes these, the .dark block swaps them. */
 :root {
-  --logo-github: url('/assets/logos/github-dark.webp');
-  --logo-x: url('/assets/logos/x-dark.webp');
-  --logo-sirclo: url('/assets/logos/sirclo-dark.webp');
-  --logo-del: url('/assets/logos/del-dark.webp');
+  --logo-github: url('/assets/logos/socials/github-dark.webp');
+  --logo-x: url('/assets/logos/socials/x-dark.webp');
+  --logo-sirclo: url('/assets/logos/experiences/sirclo-dark.webp');
+  --logo-del: url('/assets/logos/education/del-dark.webp');
   --logo-apache-kafka: url('/assets/logos/stacks/apache-kafka-dark.webp');
   --logo-helm: url('/assets/logos/stacks/helm-dark.webp');
 }
 
 :global(.dark) {
-  --logo-github: url('/assets/logos/github-light.webp');
-  --logo-x: url('/assets/logos/x-light.webp');
-  --logo-sirclo: url('/assets/logos/sirclo-light.webp');
-  --logo-del: url('/assets/logos/del-light.webp');
+  --logo-github: url('/assets/logos/socials/github-light.webp');
+  --logo-x: url('/assets/logos/socials/x-light.webp');
+  --logo-sirclo: url('/assets/logos/experiences/sirclo-light.webp');
+  --logo-del: url('/assets/logos/education/del-light.webp');
   --logo-apache-kafka: url('/assets/logos/stacks/apache-kafka-light.webp');
   --logo-helm: url('/assets/logos/stacks/helm-light.webp');
 }

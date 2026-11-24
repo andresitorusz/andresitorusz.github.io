@@ -8,7 +8,7 @@ export function Education() {
     <Panel id="education" title="Education">
       <div className="space-y-4 py-4">
         {EDUCATION.map((item) => (
-          <div key={item.id} className="group/education flex items-start gap-3">
+          <div key={item.id} className="flex items-start gap-3">
             {item.themedLogo ? (
               <ThemedLogo variant={item.themedLogo} className="mx-1 size-6 shrink-0" />
             ) : item.campusLogo ? (
@@ -21,7 +21,7 @@ export function Education() {
                 className="mx-1 size-6 shrink-0 object-contain"
               />
             ) : (
-              <div className="mx-1 flex size-6 shrink-0 items-center justify-center rounded-md border border-muted/15 bg-card text-muted">
+              <div className="mx-1 flex size-6 shrink-0 items-center justify-center rounded-md border border-border bg-card text-muted">
                 <GraduationCap className="size-4" />
               </div>
             )}
@@ -29,8 +29,8 @@ export function Education() {
               <h3 className="text-sm font-medium">{item.degree}</h3>
               <p className="text-xs text-muted">{item.campus}</p>
               {item.period && (
-                <p className="mt-1 text-xs text-muted">
-                  {item.period.start} – {item.period.end ?? 'present'}
+                <p className="mt-1 text-xs tabular-nums text-muted">
+                  {item.period.start} — {item.period.end ?? 'Present'}
                 </p>
               )}
               {item.description && (

@@ -1,69 +1,37 @@
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 import { ChevronDown, Link as LinkIcon } from 'lucide-react';
 import { VOLUNTEERING, VolunteeringItemData } from 'data/profile';
 import { cn } from 'lib/cn';
 import styles from 'styles/site.module.css';
-import { Panel } from './section';
+import { Panel, ShowMoreButton } from './section';
 import { ThemedLogo } from './themed-logo';
 
 const VISIBLE_COUNT = 3;
 
 export function Volunteering() {
   const [showAll, setShowAll] = useState(false);
-  const [pressing, setPressing] = useState(false);
-  const pressTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const always = VOLUNTEERING.slice(0, VISIBLE_COUNT);
   const hidden = VOLUNTEERING.slice(VISIBLE_COUNT);
-  const hiddenCount = hidden.length;
-
-  useEffect(() => {
-    return () => {
-      if (pressTimer.current) clearTimeout(pressTimer.current);
-    };
-  }, []);
-
-  // Keep accent color visible across tap + collapse transition on touch screens.
-  const flashPress = () => {
-    if (pressTimer.current) clearTimeout(pressTimer.current);
-    setPressing(true);
-    pressTimer.current = setTimeout(() => setPressing(false), 200);
-  };
 
   return (
     <Panel id="volunteering" title="Volunteer Experience">
-      <div className="space-y-4 py-4">
-        {always.map((item) => (
-          <VolunteeringRow key={item.id} item={item} />
-        ))}
+      <div className="py-4">
+        <div className="space-y-4">
+          {always.map((item) => (
+            <VolunteeringRow key={item.id} item={item} />
+          ))}
+        </div>
         {/* Extra rows animate open/closed with the Show more/less toggle. */}
         <div className={cn(styles.collapsible, showAll && styles.collapsibleOpen)}>
-          <div className="space-y-4">
+          <div className="space-y-4 pt-4">
             {hidden.map((item) => (
               <VolunteeringRow key={item.id} item={item} />
             ))}
           </div>
         </div>
       </div>
-      {hiddenCount > 0 && (
-        <div className="pb-4">
-          <button
-            type="button"
-            onTouchStart={flashPress}
-            onClick={() => {
-              flashPress();
-              setShowAll((value) => !value);
-            }}
-            className={cn(
-              'mx-auto flex items-center gap-1.5 text-xs transition-colors duration-150 hover:text-accent active:text-accent',
-              pressing ? 'text-accent' : 'text-muted'
-            )}
-          >
-            <ChevronDown
-              className={cn('size-3.5 transition-transform duration-200', showAll && 'rotate-180')}
-            />
-            {showAll ? 'Show less' : 'Show more'}
-          </button>
-        </div>
+      {hidden.length > 0 && (
+        <ShowMoreButton expanded={showAll} onToggle={() => setShowAll((value) => !value)} />
       )}
     </Panel>
   );
@@ -90,7 +58,16 @@ function VolunteeringRow({ item }: { item: VolunteeringItemData }) {
         <div className="min-w-0 flex-1">
           <h3 className="text-sm font-medium">{item.role ?? item.organization}</h3>
           {item.role && <p className="text-xs text-muted">{item.organization}</p>}
-          {item.periodText && <p className="mt-1 text-xs text-muted">{item.periodText}</p>}
+          {item.periodText && (
+            <p className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-0.5 text-xs tabular-nums text-muted">
+              {item.periodText.split(' · ').map((part, index) => (
+                <span key={part} className="flex items-center gap-2">
+                  {index > 0 && <span className="text-subtle">·</span>}
+                  {part}
+                </span>
+              ))}
+            </p>
+          )}
         </div>
         <button
           type="button"

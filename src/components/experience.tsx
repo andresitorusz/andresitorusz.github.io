@@ -1,70 +1,38 @@
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { differenceInMonths, parse } from 'date-fns';
 import { EXPERIENCES, ExperienceItemData } from 'data/profile';
 import { cn } from 'lib/cn';
 import styles from 'styles/site.module.css';
-import { Panel } from './section';
+import { Panel, ShowMoreButton } from './section';
 import { ThemedLogo } from './themed-logo';
 
 const VISIBLE_COUNT = 3;
 
 export function Experience() {
   const [showAll, setShowAll] = useState(false);
-  const [pressing, setPressing] = useState(false);
-  const pressTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const always = EXPERIENCES.slice(0, VISIBLE_COUNT);
   const hidden = EXPERIENCES.slice(VISIBLE_COUNT);
-  const hiddenCount = hidden.length;
-
-  useEffect(() => {
-    return () => {
-      if (pressTimer.current) clearTimeout(pressTimer.current);
-    };
-  }, []);
-
-  // Keep accent color visible across tap + collapse transition on touch screens.
-  const flashPress = () => {
-    if (pressTimer.current) clearTimeout(pressTimer.current);
-    setPressing(true);
-    pressTimer.current = setTimeout(() => setPressing(false), 200);
-  };
 
   return (
     <Panel id="experience" title="Work Experience">
-      <div className="space-y-4 py-4">
-        {always.map((experience) => (
-          <ExperienceRow key={experience.id} experience={experience} />
-        ))}
+      <div className="py-4">
+        <div className="space-y-4">
+          {always.map((experience) => (
+            <ExperienceRow key={experience.id} experience={experience} />
+          ))}
+        </div>
         {/* Extra rows animate open/closed with the Show more/less toggle. */}
         <div className={cn(styles.collapsible, showAll && styles.collapsibleOpen)}>
-          <div className="space-y-4">
+          <div className="space-y-4 pt-4">
             {hidden.map((experience) => (
               <ExperienceRow key={experience.id} experience={experience} />
             ))}
           </div>
         </div>
       </div>
-      {hiddenCount > 0 && (
-        <div className="pb-4">
-          <button
-            type="button"
-            onTouchStart={flashPress}
-            onClick={() => {
-              flashPress();
-              setShowAll((value) => !value);
-            }}
-            className={cn(
-              'mx-auto flex items-center gap-1.5 text-xs transition-colors duration-150 hover:text-accent active:text-accent',
-              pressing ? 'text-accent' : 'text-muted'
-            )}
-          >
-            <ChevronDown
-              className={cn('size-3.5 transition-transform duration-200', showAll && 'rotate-180')}
-            />
-            {showAll ? 'Show less' : 'Show more'}
-          </button>
-        </div>
+      {hidden.length > 0 && (
+        <ShowMoreButton expanded={showAll} onToggle={() => setShowAll((value) => !value)} />
       )}
     </Panel>
   );
@@ -124,7 +92,7 @@ function SinglePositionExperience({ experience }: { experience: ExperienceItemDa
   const position = experience.positions[0];
 
   return (
-    <div className="group/experience flex items-start gap-3">
+    <div className="flex items-start gap-3">
       <ExperienceLogo experience={experience} />
       <div className="min-w-0 flex-1">
         <h3 className="flex items-center gap-2 text-sm font-medium">

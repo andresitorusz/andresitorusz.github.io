@@ -1,33 +1,16 @@
-import { useEffect, useRef, useState } from 'react';
-import { ChevronDown } from 'lucide-react';
+import { useState } from 'react';
 import { STACKS, StackGroupData, StackItemData } from 'data/profile';
 import { cn } from 'lib/cn';
 import styles from 'styles/site.module.css';
-import { Panel } from './section';
+import { Panel, ShowMoreButton } from './section';
 import { ThemedLogo } from './themed-logo';
 
 const VISIBLE_COUNT = 3;
 
 export function Stacks() {
   const [showAll, setShowAll] = useState(false);
-  const [pressing, setPressing] = useState(false);
-  const pressTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const always = STACKS.slice(0, VISIBLE_COUNT);
   const hidden = STACKS.slice(VISIBLE_COUNT);
-  const hiddenCount = hidden.length;
-
-  useEffect(() => {
-    return () => {
-      if (pressTimer.current) clearTimeout(pressTimer.current);
-    };
-  }, []);
-
-  // Keep accent color visible across tap + collapse transition on touch screens.
-  const flashPress = () => {
-    if (pressTimer.current) clearTimeout(pressTimer.current);
-    setPressing(true);
-    pressTimer.current = setTimeout(() => setPressing(false), 200);
-  };
 
   return (
     <Panel id="stacks" title="Stacks">
@@ -44,26 +27,8 @@ export function Stacks() {
           </div>
         </div>
       </div>
-      {hiddenCount > 0 && (
-        <div className="pb-4">
-          <button
-            type="button"
-            onTouchStart={flashPress}
-            onClick={() => {
-              flashPress();
-              setShowAll((value) => !value);
-            }}
-            className={cn(
-              'mx-auto flex items-center gap-1.5 text-xs transition-colors duration-150 hover:text-accent active:text-accent',
-              pressing ? 'text-accent' : 'text-muted'
-            )}
-          >
-            <ChevronDown
-              className={cn('size-3.5 transition-transform duration-200', showAll && 'rotate-180')}
-            />
-            {showAll ? 'Show less' : 'Show more'}
-          </button>
-        </div>
+      {hidden.length > 0 && (
+        <ShowMoreButton expanded={showAll} onToggle={() => setShowAll((value) => !value)} />
       )}
     </Panel>
   );

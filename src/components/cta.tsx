@@ -23,7 +23,7 @@ export function Cta() {
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/assets/logos/linkedin.webp"
+            src="/assets/logos/socials/linkedin.webp"
             alt=""
             aria-hidden
             className="size-[18px] object-contain"

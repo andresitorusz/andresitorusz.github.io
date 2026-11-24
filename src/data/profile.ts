@@ -2,38 +2,33 @@ import { GITHUB_USERNAME } from 'data/constants';
 
 export type SocialName = 'github' | 'linkedin' | 'x' | 'youtube';
 
-type Social = { name: SocialName; title: string; handle: string; href: string };
+type Social = { name: SocialName; title: string; href: string };
 
 const socials: Social[] = [
   {
     name: 'github',
     title: 'GitHub',
-    handle: GITHUB_USERNAME,
     href: `https://github.com/${GITHUB_USERNAME}`
   },
   {
     name: 'linkedin',
     title: 'LinkedIn',
-    handle: 'andresitorusz',
     href: 'https://linkedin.com/in/andresitorusz'
   },
   {
     name: 'x',
     title: 'X',
-    handle: '@andresitorusz',
     href: 'https://x.com/andresitorusz'
   },
   {
     name: 'youtube',
     title: 'YouTube',
-    handle: '@andresitorusz',
     href: 'https://www.youtube.com/@andresitorusz'
-  },
+  }
 ];
 
 export const PROFILE = {
   displayName: 'Andre Yehuda Sitorus',
-  timeZone: 'Asia/Jakarta',
   githubUsername: GITHUB_USERNAME,
   linkedinUrl: 'https://linkedin.com/in/andresitorusz',
   socials
@@ -173,7 +168,7 @@ export const EXPERIENCES: ExperienceItemData[] = [
   {
     id: 'ajaib',
     companyName: 'Ajaib',
-    companyLogo: '/assets/logos/ajaib.webp',
+    companyLogo: '/assets/logos/experiences/ajaib.webp',
     companyLocation: 'Indonesia',
     companyLocationType: 'Remote',
     logoShape: 'rounded-square',
@@ -198,7 +193,7 @@ export const EXPERIENCES: ExperienceItemData[] = [
   {
     id: 'goto-group',
     companyName: 'GoTo Group',
-    companyLogo: '/assets/logos/goto.webp',
+    companyLogo: '/assets/logos/experiences/goto.webp',
     companyLocation: 'Indonesia',
     companyLocationType: 'Hybrid',
     logoShape: 'full',
@@ -254,7 +249,7 @@ export const EXPERIENCES: ExperienceItemData[] = [
   {
     id: 'tokopedia',
     companyName: 'Tokopedia',
-    companyLogo: '/assets/logos/tokopedia.webp',
+    companyLogo: '/assets/logos/experiences/tokopedia.webp',
     companyLocation: 'Indonesia',
     companyLocationType: 'Remote',
     logoShape: 'full',
@@ -284,7 +279,7 @@ export const EXPERIENCES: ExperienceItemData[] = [
   {
     id: 'blibli',
     companyName: 'Blibli',
-    companyLogo: '/assets/logos/blibli.webp',
+    companyLogo: '/assets/logos/experiences/blibli.webp',
     companyLocation: 'Indonesia',
     companyLocationType: 'Remote',
     logoShape: 'full',
@@ -344,7 +339,7 @@ export const LICENSES: LicenseItemData[] = [
     id: 'gcp-professional-data-engineer',
     title: 'Professional Data Engineer',
     issuer: 'Google Cloud',
-    issuerLogo: '/assets/logos/gcp.webp',
+    issuerLogo: '/assets/logos/certifications/gcp.webp',
     issued: 'Oct 2024',
     expires: 'Oct 2027',
     credentialId: 'c890643b57af405db80b1e0c5f46eafa',
@@ -354,7 +349,7 @@ export const LICENSES: LicenseItemData[] = [
     id: 'binar-quality-assurance-bootcamp',
     title: 'Quality Assurance Bootcamp',
     issuer: 'Binar Academy',
-    issuerLogo: '/assets/logos/binar.webp',
+    issuerLogo: '/assets/logos/certifications/binar.webp',
     issued: 'Mar 2023',
     credentialUrl: 'https://drive.google.com/file/d/1RA1Zwu-AoZo1NsplqN0wge5S5eZ9-SCL/view?pli=1'
   },
@@ -362,7 +357,7 @@ export const LICENSES: LicenseItemData[] = [
     id: 'coursera-gcp-specialization',
     title: 'Developing Applications with Google Cloud Platform Specialization',
     issuer: 'Coursera',
-    issuerLogo: '/assets/logos/coursera.webp',
+    issuerLogo: '/assets/logos/certifications/coursera.webp',
     issued: 'Apr 2020',
     credentialId: 'KYC3MFTXPU5W',
     credentialUrl: 'https://coursera.org/share/84585f9e1bb9e2a657e21bba80e13c3c'
@@ -409,12 +404,11 @@ export type VolunteeringItemData = {
   credentialUrl?: string;
 };
 
-// From temp/volunteering.txt.
 export const VOLUNTEERING: VolunteeringItemData[] = [
   {
     id: 'cloud-study-jams',
     organization: 'Google',
-    logo: '/assets/logos/google.webp',
+    logo: '/assets/logos/volunteering/google.webp',
     role: 'Facilitator of Cloud Study Jams',
     periodText: 'Nov 2019 · 1 mo',
     description:
@@ -423,9 +417,9 @@ export const VOLUNTEERING: VolunteeringItemData[] = [
   {
     id: 'developer-student-clubs',
     organization: 'Google',
-    logo: '/assets/logos/google.webp',
+    logo: '/assets/logos/volunteering/google.webp',
     role: 'Lead of Developer Student Clubs',
-    periodText: 'Aug 2019 - Jul 2020 · 1 yr',
+    periodText: 'Aug 2019 — Jul 2020 · 1 yr',
     credentialUrl: 'https://drive.google.com/file/d/1EfzH89gUANt5s6FDtjyrcXpEsqhHAQPG/view?usp=sharing',
     description:
       'Developer Student Clubs (DSC) is a Google Developer program for university students, designed to help them build their cloud computing, mobile, and web development skills and knowledge.\nAs a Lead, I:\n- Set up DSC on my campus.\n- Organized club events.\n- Created chances for colleagues to share knowledge with fellow students.'
@@ -435,14 +429,14 @@ export const VOLUNTEERING: VolunteeringItemData[] = [
     organization: 'Institut Teknologi Del',
     themedLogo: 'del',
     role: 'Computer Lab Assistant',
-    periodText: 'Sep 2019 - May 2020 · 9 mos',
+    periodText: 'Sep 2019 — May 2020 · 9 mos',
     description:
       'As a Computer Lab Assistant, I:\n- Guided the students in understanding the practicum module.\n- Assisted the lecturer in evaluating student practicum assignments.\n- Assisted the lecturer in evaluating the final project of the course.\n\nCourse: Mobile Application Development. [September 2019 - May 2020]\nCourse topics: Activity, Thread & Fragment, Intent & Services, Content Provider & Broadcast Receiver, App Resources, Layout, Input Controls & Input Events, Room, and Web Service & Retrofit.\n\nCourse: Artificial Intelligence. [September 2019 - January 2020]\nCourse topics: Uninformed Search, Informed Search, Classical Search, Adversarial Search, and Uncertainty & Probabilistic Reasoning.'
   },
   {
     id: 'bebras',
     organization: 'Bebras Indonesia',
-    logo: '/assets/logos/bebras.webp',
+    logo: '/assets/logos/volunteering/bebras.webp',
     role: 'Committee Member',
     periodText: 'Oct 2018 · 1 mo',
     description:
