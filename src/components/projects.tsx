@@ -68,7 +68,9 @@ function ProjectRow({ project }: { project: ProjectItemData }) {
       {/* Same structure and gaps as Licenses & Certifications. */}
       <div className="flex items-start gap-3">
         {isGithubFallback ? (
-          <ThemedLogo variant="github" className="mx-1 size-6 shrink-0" />
+          <span className="mx-1 flex size-6 shrink-0 items-center justify-center">
+            <ThemedLogo variant="github" className="size-[18.5px]" />
+          </span>
         ) : logo ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img

@@ -310,7 +310,7 @@ function ExperienceLogo({ experience }: { experience: ExperienceItemData }) {
         className={cn(
           'mx-1 shrink-0',
           experience.logoShape === 'rounded-square'
-            ? 'size-6 rounded-md object-cover'
+            ? 'size-6 rounded-md object-contain'
             : experience.logoShape === 'full'
               ? 'h-6 w-auto object-contain'
               : 'size-6 rounded-full object-contain'
