@@ -33,7 +33,6 @@ const socials: Social[] = [
 
 export const PROFILE = {
   displayName: 'Andre Yehuda Sitorus',
-  avatar: '/assets/pfp.webp',
   timeZone: 'Asia/Jakarta',
   githubUsername: GITHUB_USERNAME,
   linkedinUrl: 'https://linkedin.com/in/andresitorusz',
