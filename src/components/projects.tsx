@@ -91,14 +91,14 @@ function ProjectRow({ project }: { project: ProjectItemData }) {
           {project.description && (
             <p className="mt-1 text-xs leading-relaxed text-muted">{project.description}</p>
           )}
-          {project.skills.length > 0 && (
+          {project.stacks.length > 0 && (
             <ul className="mt-1 flex flex-wrap gap-1.5">
-              {project.skills.map((skill) => (
+              {project.stacks.map((stack) => (
                 <li
-                  key={skill}
+                  key={stack}
                   className="rounded-full bg-card px-1.5 py-0.5 text-[11px] text-muted"
                 >
-                  {skill}
+                  {stack}
                 </li>
               ))}
             </ul>

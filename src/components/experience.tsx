@@ -149,14 +149,14 @@ function SinglePositionExperience({ experience }: { experience: ExperienceItemDa
             </div>
           </div>
         )}
-        {position.skills && (
+        {position.stacks && (
           <ul className="mt-1 flex flex-wrap gap-1.5">
-            {position.skills.map((skill) => (
+            {position.stacks.map((stack) => (
               <li
-                key={skill}
+                key={stack}
                 className="rounded-full bg-card px-1.5 py-0.5 text-[11px] text-muted"
               >
-                {skill}
+                {stack}
               </li>
             ))}
           </ul>
@@ -271,14 +271,14 @@ function MultiPositionBlock({
             </div>
           </div>
         )}
-        {position.skills && (
+        {position.stacks && (
           <ul className="mt-1 flex flex-wrap gap-1.5">
-            {position.skills.map((skill) => (
+            {position.stacks.map((stack) => (
               <li
-                key={skill}
+                key={stack}
                 className="rounded-full bg-card px-1.5 py-0.5 text-[11px] text-muted"
               >
-                {skill}
+                {stack}
               </li>
             ))}
           </ul>

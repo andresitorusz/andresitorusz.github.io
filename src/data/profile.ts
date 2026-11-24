@@ -170,7 +170,7 @@ export type ExperienceItemData = {
     location?: string;
     /** Role context (team, focus) shown before the description points. */
     context?: string;
-    skills?: string[];
+    stacks?: string[];
     highlights?: string[];
   }[];
 };
@@ -191,7 +191,7 @@ export const EXPERIENCES: ExperienceItemData[] = [
         employmentPeriod: { start: 'Jul 2026' },
         employmentType: 'Full-time',
         context: 'Making Magic Happen.',
-        skills: [
+        stacks: [
           'Apache Airflow', 'Apache Flink', 'Apache Kafka', 'Apache Spark', 'Argo CD', 'Atlassian Confluence',
           'Atlassian Jira', 'dbt', 'Debezium', 'GitHub', 'Docker', 'Go','Google Artifact Registry',
           'Google BigQuery', 'Google Cloud Storage', 'Google Kubernetes Engine', 'Google Secret Manager',
@@ -216,7 +216,7 @@ export const EXPERIENCES: ExperienceItemData[] = [
         employmentType: 'Full-time',
         context:
           "I was part of a small, dedicated data squad handling market-pricing-related work at GoTo Group (specifically Gojek), Indonesia's premier on-demand platform.",
-        skills: [
+        stacks: [
           'Alibaba MaxCompute', 'Alibaba OSS', 'Apache Airflow', 'Docker', 'GitLab',
           'Google BigQuery', 'Google Cloud Storage', 'Python', 'SQL'
         ],
@@ -242,7 +242,7 @@ export const EXPERIENCES: ExperienceItemData[] = [
         employmentPeriod: { start: 'Jun 2023', end: 'Sep 2024' },
         employmentType: 'Full-time',
         context: 'At SIRCLO, Indonesia\'s leading omnichannel commerce enabler, I helped manage the internal data platform.',
-        skills: [
+        stacks: [
           'Apache Airflow', 'Apache Spark', 'Apache Superset', 'DataHub', 'dbt', 'Docker', 'Google Artifact Registry',
           'Google BigQuery', 'Google Cloud Run', 'Google Cloud Storage', 'Google Kubernetes Engine',
           'Jenkins', 'Phabricator', 'Python', 'Scala', 'Streamlit', 'SQL'
@@ -271,7 +271,7 @@ export const EXPERIENCES: ExperienceItemData[] = [
         employmentPeriod: { start: 'Mar 2022', end: 'May 2023' },
         employmentType: 'Full-time',
         context: 'At Tokopedia, an Indonesian tech company focused on democratizing commerce, I was part of the Data Ingestion squad responsible for their data platform.',
-        skills: [
+        stacks: [
           'Apache Airflow', 'Apache Beam', 'Atlassian Confluence', 'Atlassian Jira', 'Debezium',
           'Docker', 'GitHub', 'Go', 'Google Artifact Registry', 'Google BigQuery', 'Google Cloud Storage',
           'Google Dataflow', 'Google Kubernetes Engine', 'Google Pub/Sub', 'Google Secret Manager',
@@ -301,7 +301,7 @@ export const EXPERIENCES: ExperienceItemData[] = [
         employmentPeriod: { start: 'Feb 2021', end: 'Feb 2022' },
         employmentType: 'Full-time',
         context: 'Working across Blibli, an omnichannel commerce ecosystem, and its automotive sister company, Garasi.id, was my direct pathway to becoming a Data Engineer.',
-        skills: [
+        stacks: [
           'Apache Airflow', 'Atlassian Bitbucket', 'Atlassian Confluence', 'Atlassian Jira', 'Google Artifact Registry',
           'Google BigQuery', 'Google Cloud Storage', 'Google Dataflow', 'Python', 'SQL'
         ],
@@ -322,7 +322,6 @@ export type EducationItemData = {
   themedLogo?: 'del';
   period?: { start: string; end?: string };
   description?: string;
-  skills?: string[];
 };
 
 export const EDUCATION: EducationItemData[] = [
@@ -382,7 +381,7 @@ export type ProjectItemData = {
   date?: string;
   logo?: string;
   link?: string;
-  skills: string[];
+  stacks: string[];
   description?: string;
 };
 
@@ -392,7 +391,7 @@ export const PROJECTS: ProjectItemData[] = [
     title: 'Lugvloei',
     date: 'Feb 2025',
     link: 'https://github.com/andresitorusz/lugvloei',
-    skills: ['Apache Airflow', 'Docker', 'Helm', 'Kubernetes', 'Python'],
+    stacks: ['Apache Airflow', 'Docker', 'Helm', 'Kubernetes', 'Python'],
     description: 'Learning Apache Airflow deployment and operation on Kubernetes.'
   },
   {
@@ -400,7 +399,7 @@ export const PROJECTS: ProjectItemData[] = [
     title: 'Esdiel',
     date: 'Jul 2024',
     link: 'https://github.com/andresitorusz/esdiel',
-    skills: ['Amazon Athena', 'Amazon S3', 'AWS Glue', 'AWS Lambda', 'Terraform'],
+    stacks: ['Amazon Athena', 'Amazon S3', 'AWS Glue', 'AWS Lambda', 'Terraform'],
     description: 'Learning a simple serverless data lake deployment on AWS using Terraform.'
   }
 ];
