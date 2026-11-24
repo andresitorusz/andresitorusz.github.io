@@ -33,18 +33,13 @@ export function Stacks() {
     <Panel id="stacks" title="Stacks">
       <div className="py-4">
         {always.map((group, index) => (
-          <StackGroupRow key={group.id} group={group} index={index} isFirst={index === 0} />
+          <StackGroupRow key={group.id} group={group} isFirst={index === 0} />
         ))}
         {/* Extra groups animate open/closed with the Show more/less toggle. */}
         <div className={cn(styles.collapsible, showAll && styles.collapsibleOpen)}>
           <div>
-            {hidden.map((group, index) => (
-              <StackGroupRow
-                key={group.id}
-                group={group}
-                index={VISIBLE_COUNT + index}
-                isFirst={false}
-              />
+            {hidden.map((group) => (
+              <StackGroupRow key={group.id} group={group} isFirst={false} />
             ))}
           </div>
         </div>
@@ -74,26 +69,15 @@ export function Stacks() {
   );
 }
 
-function StackGroupRow({
-  group,
-  index,
-  isFirst
-}: {
-  group: StackGroupData;
-  index: number;
-  isFirst: boolean;
-}) {
-  const number = String(index + 1).padStart(2, '0');
-
+function StackGroupRow({ group, isFirst }: { group: StackGroupData; isFirst: boolean }) {
   return (
     <div
       className={cn(
-        'grid grid-cols-1 gap-2 py-3 sm:grid-cols-[16.5rem_1fr] sm:gap-0',
+        'grid grid-cols-1 gap-2 py-3 sm:grid-cols-[15.5rem_1fr] sm:gap-0',
         isFirst ? 'pt-0' : 'border-t border-border'
       )}
     >
-      <div className="flex items-baseline gap-2.5 sm:py-1 sm:pr-4">
-        <span className="text-xs tabular-nums text-subtle">{number}</span>
+      <div className="sm:py-1 sm:pr-4">
         <h3 className="text-sm font-medium text-foreground">{group.category}</h3>
       </div>
       <div className="sm:border-l sm:border-dashed sm:border-border sm:pl-4">

@@ -78,16 +78,10 @@ export const STACKS: StackGroupData[] = [
     ]
   },
   {
-    id: 'data-orchestration',
-    category: 'Data Orchestration',
+    id: 'data-orchestration-processing-streaming',
+    category: 'Data (Orchestration / Processing / Streaming)',
     items: [
-      { name: 'Apache Airflow', logo: '/assets/logos/stacks/apache-airflow.webp' }
-    ]
-  },
-  {
-    id: 'data-processing-streaming',
-    category: 'Data (Processing / Streaming)',
-    items: [
+      { name: 'Apache Airflow', logo: '/assets/logos/stacks/apache-airflow.webp' },
       { name: 'Apache Beam', logo: '/assets/logos/stacks/apache-beam.webp' },
       { name: 'Apache Flink', logo: '/assets/logos/stacks/apache-flink.webp' },
       { name: 'Apache Kafka', themedLogo: 'apache-kafka' },
